@@ -1,31 +1,39 @@
 # Brand assets
 
-Nothing's here yet — this app currently falls back to a text wordmark
-("SPACEBACK") in a thin divider at the top of each card, and a placeholder
-color palette (near-black background, off-white text, orange-red accent).
-Both are easy to swap once you have real brand assets.
-
-## Adding the real logo
-
-1. Drop your logo file here as `logo-mark.png` — ideally a square (or
-   near-square) crop with a transparent background and tight margins
-   around the mark itself. (For The Social Fabric's version of this tool,
-   the master file had a lot of transparent padding around a circular
-   badge, which made the auto-placed logo render too small — it had to be
-   cropped to the mark's actual bounding box first. Check for the same
-   issue here before dropping the file in.)
-2. Run `node scripts/embed-logo.js`. This regenerates
-   `assets/logo-mark-embed.js`, which is what the app actually loads (as
-   an embedded `data:` URI, not a plain file reference — see the comment
-   at the top of that script for why: a plain `<img src="...">` pointed at
-   a local file taints the canvas and silently breaks every download).
-3. Reload the app — the logo should now appear centered at the top of
-   every template, sized to ~20% of the card's height.
+- `logo-mark.png` — the real Spaceback by Rembrand lockup (astronaut mark +
+  wordmark + "by REMBRAND" badge), black ink, already tightly cropped (no
+  padding to trim). It's a wide horizontal lockup (~4:1), not square —
+  `drawTopLogo` in `js/app.js` fits it within a width AND height box
+  ("contain" sizing), not just a height ratio, which is what a square
+  logo like The Social Fabric's could get away with.
+- `logo-mark-embed.js` — **this is what the app actually auto-loads**, not
+  `logo-mark.png` directly. It's `logo-mark.png` re-encoded as a `data:`
+  URI. An `<img>` pointed straight at a local `file://` image taints the
+  canvas it's drawn onto (blocks every download, even though it still
+  renders fine on screen) — a `data:` URI never does. **After replacing
+  `logo-mark.png`, regenerate this file** with `node scripts/embed-logo.js`
+  — nothing updates automatically otherwise.
 
 ## Colors
 
+Because the logo is black ink (meant for a light background), the default
+palette is light-mode: white background, near-black text, a purple-pink
+accent — this was the first of the two directions given ("light background
+with purple and pink or black copy, or black background with white copy");
+the black-background option isn't available without a separate
+white/inverted version of the logo, which doesn't exist yet.
+
+| Role | Default hex |
+|---|---|
+| Background | `#ffffff` |
+| Text | `#111111` |
+| Accent | `#c026d3` |
+
+If you want a dark-mode variant later, I'd need an inverted (white) copy
+of the logo — either a separate file you provide, or I can generate one by
+inverting the black pixels in `logo-mark.png` programmatically (a direct
+color transform of your own asset, not a redesign).
+
 Update the three `<input type="color">` defaults in `index.html` (search
-for `bgColor`, `textColor`, `accentColor`) once you have exact brand hex
-values. If you want them sampled directly from the logo file the way The
-Social Fabric's accent color was (reading the dominant opaque pixel color
-out of the PNG), ask and I'll do the same here.
+for `bgColor`, `textColor`, `accentColor`) if you want different exact
+hex values.

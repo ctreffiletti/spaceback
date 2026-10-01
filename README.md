@@ -77,15 +77,15 @@ into a standalone review page (`review/template.html`) meant to be
 published as a Claude Artifact with the `downloads` capability, so there's
 a working download button without exposing any secrets client-side.
 
-This mirrors The Social Fabric's setup exactly — ask the session that
-built this to wire up the same self-rescheduling trigger (every 3 days,
-emailing cory@rembrand.com with the two picks and a link to the review
-page) if it isn't already running.
+This mirrors The Social Fabric's setup exactly — same self-rescheduling
+trigger, every 3 days, emailing the two picks and a link to the review
+page. The email never mentions The Social Fabric by name — this is a
+separate project with its own recipient.
 
 ## Known gaps vs. the Social Fabric setup
 
-- **No logo yet** — see `assets/README.md`.
-- **Placeholder brand colors** — near-black / off-white / orange-red,
-  easy to swap once real colors are set.
 - **No LinkedIn/Instagram API connection** — same situation as The Social
   Fabric: downloading and posting manually is the whole flow for now.
+- **No dark-mode variant** — the real logo is black ink, so only the
+  light-background palette is available until there's an inverted/white
+  version of it. See `assets/README.md`.

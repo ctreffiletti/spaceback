@@ -7,10 +7,18 @@
     {
       "id": "q-01",
       "date": "2026-10-01"
+    },
+    {
+      "id": "f-02",
+      "date": "2026-10-01"
+    },
+    {
+      "id": "b-01",
+      "date": "2026-10-01"
     }
   ],
-  "lastQuoteThemeIndex": 0,
-  "lastQuoteTemplateWasClassic": true,
+  "lastQuoteThemeIndex": 1,
+  "lastQuoteTemplateWasClassic": false,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -41,6 +49,38 @@
           "sourceUrl": null,
           "file": "generated/2026-10-01T01-40-06-481Z/card-2.png",
           "suggestedCaption": "\"If it doesn't sell, it isn't creative.\" — David Ogilvy"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-01T01-52-50-629Z",
+      "createdAt": "2026-10-01T01:52:52.244Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "f-02",
+          "theme": "facts",
+          "type": "fact",
+          "template": "statement",
+          "text": "For digital campaigns specifically, creative drives 56% of sales lift, compared to just 30% from media factors like targeting and reach.",
+          "author": null,
+          "source": "Nielsen Catalina Solutions",
+          "sourceUrl": "https://info.ncsolutions.com/hubfs/2023%20Five%20Keys%20to%20Advertising%20Effectiveness/NCS_Five_Keys_to_Advertising_Effectiveness_E-Book_08-23.pdf",
+          "file": "generated/2026-10-01T01-52-50-629Z/card-1.png",
+          "suggestedCaption": "For digital campaigns specifically, creative drives 56% of sales lift, compared to just 30% from media factors like targeting and reach. (Source: Nielsen Catalina Solutions)"
+        },
+        {
+          "itemId": "b-01",
+          "theme": "ai-creative",
+          "type": "quote",
+          "template": "statement",
+          "text": "AI doesn't replace creative judgment. It multiplies how many ideas you can test before you commit a media budget to one.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-01T01-52-50-629Z/card-2.png",
+          "suggestedCaption": "\"AI doesn't replace creative judgment. It multiplies how many ideas you can test before you commit a media budget to one.\" — Spaceback"
         }
       ]
     }

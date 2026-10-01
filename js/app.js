@@ -225,20 +225,28 @@
     ctx.restore();
   }
 
-  // Standard brand mark, centered at the top of every template. Sized as a
-  // fraction of canvas HEIGHT (not width) so it stays legible at phone
-  // scale regardless of aspect ratio. Returns the vertical space it used
-  // (0 if no logo is loaded) so callers can push their content down to
-  // make room for it.
-  function drawTopLogo(w, h, topY, heightRatio, { backdrop = false } = {}) {
+  // Standard brand mark, centered at the top of every template. Fit
+  // ("contain") within a maxWidthRatio x maxHeightRatio box so it works
+  // for both a roughly-square mark and a wide horizontal lockup — sizing
+  // off height alone (as this once did) sends a wide logo past the card's
+  // edges. Returns the vertical space it used (0 if no logo is loaded) so
+  // callers can push their content down to make room for it.
+  function drawTopLogo(w, h, topY, maxWidthRatio, maxHeightRatio, { backdrop = false } = {}) {
     if (!logoImage) return 0;
-    const logoH = h * heightRatio;
-    const logoW = logoH * (logoImage.width / logoImage.height);
+    let logoW = w * maxWidthRatio;
+    let logoH = logoW * (logoImage.height / logoImage.width);
+    if (logoH > h * maxHeightRatio) {
+      logoH = h * maxHeightRatio;
+      logoW = logoH * (logoImage.width / logoImage.height);
+    }
     const x = w / 2 - logoW / 2;
 
     if (backdrop) {
       ctx.save();
-      ctx.fillStyle = "rgba(0,0,0,0.35)";
+      // Spaceback's mark is black ink — a dark backdrop (right for a gold
+      // mark) would hide it. Use a light chip instead so it stays legible
+      // over any photo.
+      ctx.fillStyle = "rgba(255,255,255,0.9)";
       const pad = logoH * 0.35;
       ctx.beginPath();
       ctx.roundRect(x - pad, topY - pad, logoW + pad * 2, logoH + pad * 2, logoH * 0.3);
@@ -303,7 +311,7 @@
       let areaTop;
       if (logoImage) {
         const logoTopY = h * 0.045;
-        const logoH = drawTopLogo(w, h, logoTopY, 0.2);
+        const logoH = drawTopLogo(w, h, logoTopY, 0.7, 0.2);
         areaTop = logoTopY + logoH + h * 0.04;
       } else {
         const dividerY = h * 0.14;
@@ -339,7 +347,7 @@
       drawFooter(w, h, accent, base);
 
     } else if (tpl === "photo") {
-      if (logoImage) drawTopLogo(w, h, h * 0.04, 0.2, { backdrop: true });
+      if (logoImage) drawTopLogo(w, h, h * 0.04, 0.7, 0.2, { backdrop: true });
 
       const areaTop = h * 0.55;
       const areaBottom = h * 0.92;
@@ -373,7 +381,7 @@
       let areaTop;
       if (logoImage) {
         const logoTopY = h * 0.06;
-        const logoH = drawTopLogo(w, h, logoTopY, 0.2);
+        const logoH = drawTopLogo(w, h, logoTopY, 0.7, 0.2);
         areaTop = logoTopY + logoH + h * 0.05;
       } else {
         ctx.save();
