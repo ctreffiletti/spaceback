@@ -3,9 +3,10 @@
 - `logo-mark.png` — the real Spaceback by Rembrand lockup (astronaut mark +
   wordmark + "by REMBRAND" badge), black ink, already tightly cropped (no
   padding to trim). It's a wide horizontal lockup (~4:1), not square —
-  `drawTopLogo` in `js/app.js` fits it within a width AND height box
+  `drawBottomLogo` in `js/app.js` fits it within a width AND height box
   ("contain" sizing), not just a height ratio, which is what a square
-  logo like The Social Fabric's could get away with.
+  logo like The Social Fabric's could get away with. It's anchored near the
+  bottom of every card; the campaign theme name is the banner at the top.
 - `logo-mark-embed.js` — **this is what the app actually auto-loads**, not
   `logo-mark.png` directly. It's `logo-mark.png` re-encoded as a `data:`
   URI. An `<img>` pointed straight at a local `file://` image taints the

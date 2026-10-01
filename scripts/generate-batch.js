@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 /*
- * Selects 2 items from data/quotes-data.js that haven't been used recently
- * (one Fact/Stat + one from the next theme in rotation), renders each to a
- * PNG via a headless browser, and records the batch in data/post-history.json.
+ * Selects one item per Q4 campaign theme (data/quotes-data.js's
+ * `campaigns` list — "Creative Is The New Targeting" and "Make Every
+ * Impression A Spaceback Impression") that hasn't been used recently,
+ * renders each to a PNG via a headless browser, and records the batch in
+ * data/post-history.json. Every batch always has exactly one post per
+ * campaign, so the reviewer picks whichever theme they want to post.
  *
  * Usage: node scripts/generate-batch.js [--format 1080x1350]
  *
@@ -18,11 +21,9 @@ const ROOT = path.resolve(__dirname, "..");
 const HISTORY_PATH = path.join(ROOT, "data", "post-history.json");
 const CONTENT_LIBRARY = require(path.join(ROOT, "data", "quotes-data.js"));
 
-const QUOTE_THEME_ROTATION = ["creative-performance", "ai-creative", "creative-fatigue", "format-innovation"];
-
 function loadHistory() {
   if (!fs.existsSync(HISTORY_PATH)) {
-    return { usedLog: [], lastQuoteThemeIndex: -1, lastQuoteTemplateWasClassic: false, batches: [] };
+    return { usedLog: [], lastQuoteTemplateWasClassic: false, batches: [] };
   }
   return JSON.parse(fs.readFileSync(HISTORY_PATH, "utf8"));
 }
@@ -53,19 +54,14 @@ function pickLeastRecentlyUsed(history, candidates) {
 }
 
 function selectBatch(history) {
-  const items = CONTENT_LIBRARY.items.filter((i) => i.theme !== "brand");
-  const facts = items.filter((i) => i.theme === "facts");
-  const nextThemeIndex = (history.lastQuoteThemeIndex + 1) % QUOTE_THEME_ROTATION.length;
-  const nextTheme = QUOTE_THEME_ROTATION[nextThemeIndex];
-  const themedQuotes = items.filter((i) => i.theme === nextTheme);
-
-  const factPick = pickLeastRecentlyUsed(history, facts);
-  const quotePick = pickLeastRecentlyUsed(history, themedQuotes);
-
-  return { factPick, quotePick, nextThemeIndex };
+  const items = CONTENT_LIBRARY.items.filter((i) => i.campaign);
+  return CONTENT_LIBRARY.campaigns.map((campaign) => {
+    const pool = items.filter((i) => i.campaign === campaign.id);
+    return pickLeastRecentlyUsed(history, pool);
+  });
 }
 
-function templateForItem(item, history, isSecondPick) {
+function templateForItem(item, history) {
   if (item.type === "fact") return "statement";
   // Alternate quote template each batch so the feed doesn't feel repetitive.
   return history.lastQuoteTemplateWasClassic ? "statement" : "classic";
@@ -94,10 +90,10 @@ async function main() {
   const format = formatArgIdx !== -1 ? process.argv[formatArgIdx + 1] : "1080x1350";
 
   const history = loadHistory();
-  const { factPick, quotePick, nextThemeIndex } = selectBatch(history);
+  const picks = selectBatch(history);
 
-  if (!factPick || !quotePick) {
-    throw new Error("Could not select two items — check data/quotes-data.js has fact and themed quote entries.");
+  if (picks.length !== CONTENT_LIBRARY.campaigns.length || picks.some((p) => !p)) {
+    throw new Error("Could not select one item per campaign — check data/quotes-data.js has items tagged with each campaign id.");
   }
 
   const now = new Date();
@@ -118,7 +114,6 @@ async function main() {
   await page.goto("file://" + path.join(ROOT, "index.html"));
   await page.waitForTimeout(300);
 
-  const picks = [factPick, quotePick];
   const templates = picks.map((item) => templateForItem(item, history));
   const files = [];
 
@@ -130,10 +125,11 @@ async function main() {
 
   await browser.close();
 
-  history.usedLog.push({ id: factPick.id, date: today }, { id: quotePick.id, date: today });
+  history.usedLog.push(...picks.map((item) => ({ id: item.id, date: today })));
   if (history.usedLog.length > 60) history.usedLog = history.usedLog.slice(-60);
-  history.lastQuoteThemeIndex = nextThemeIndex;
-  history.lastQuoteTemplateWasClassic = templates[1] === "classic";
+  // Flip every batch so the feed alternates statement/classic over time,
+  // independent of which items (fact vs. quote) happen to be picked.
+  history.lastQuoteTemplateWasClassic = !history.lastQuoteTemplateWasClassic;
 
   const batchRecord = {
     batchId,
@@ -143,6 +139,7 @@ async function main() {
     items: picks.map((item, i) => ({
       itemId: item.id,
       theme: item.theme,
+      campaign: item.campaign,
       type: item.type,
       template: templates[i],
       text: item.text,

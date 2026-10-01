@@ -20,7 +20,6 @@
   const accentColor = el("accentColor");
   const fontFamily = el("fontFamily");
   const wordmark = el("wordmark");
-  const handle = el("handle");
   const photoGroup = el("photoGroup");
   const bgImageInput = el("bgImageInput");
   const dimSlider = el("dimSlider");
@@ -62,6 +61,11 @@
       });
   }
 
+  function campaignLabel(campaignId) {
+    const campaign = (CONTENT_LIBRARY.campaigns || []).find((c) => c.id === campaignId);
+    return campaign ? campaign.label : null;
+  }
+
   function loadItemIntoEditor(overrideId) {
     const item = CONTENT_LIBRARY.items.find((i) => i.id === (overrideId || itemPicker.value));
     if (!item) return;
@@ -71,6 +75,10 @@
     highlightText.value = hl;
     authorText.value = item.author || "";
     sourceText.value = item.source || "";
+    // The banner at the top of the card shows this item's Q4 campaign theme
+    // when it has one, so a library pick always surfaces the right theme.
+    const label = campaignLabel(item.campaign);
+    if (label) wordmark.value = label;
     toggleAttributionFields();
     render();
   }
@@ -189,21 +197,33 @@
     return lines.length * lineHeight;
   }
 
-  // ---------- Divider / wordmark ----------
+  // ---------- Divider / theme banner ----------
+  // Shows the campaign theme name at the top of every card. Auto-fits the
+  // font size down so a long label ("MAKE EVERY IMPRESSION A SPACEBACK
+  // IMPRESSION") still fits the card width with room for flanking lines,
+  // without needing a different layout for short vs. long labels.
   function drawDivider(cx, y, label, color, canvasWidth) {
     ctx.save();
-    ctx.font = `600 ${Math.round(canvasWidth * 0.024)}px 'Poppins', sans-serif`;
+    const text = (label || "").toUpperCase();
+    const maxTextWidth = canvasWidth * 0.62;
+    let fontSize = Math.round(canvasWidth * 0.024);
+    const minFontSize = Math.round(canvasWidth * 0.013);
+    let textWidth;
+    while (true) {
+      ctx.font = `600 ${fontSize}px 'Poppins', sans-serif`;
+      ctx.letterSpacing = fontSize >= canvasWidth * 0.02 ? "3px" : "1.5px";
+      textWidth = ctx.measureText(text).width;
+      if (textWidth <= maxTextWidth || fontSize <= minFontSize) break;
+      fontSize -= 1;
+    }
     ctx.textAlign = "center";
     ctx.fillStyle = color;
-    const text = label.toUpperCase();
-    const textWidth = ctx.measureText(text).width;
-    const lineLen = canvasWidth * 0.16;
-    const gap = 14;
-    ctx.letterSpacing = "3px";
     ctx.fillText(text, cx, y);
     ctx.strokeStyle = color;
     ctx.lineWidth = 1.5;
-    const lineY = y - Math.round(canvasWidth * 0.024) * 0.35;
+    const lineLen = Math.max(canvasWidth * 0.06, (canvasWidth * 0.86 - textWidth) / 2 - 20);
+    const gap = 14;
+    const lineY = y - fontSize * 0.35;
     ctx.beginPath();
     ctx.moveTo(cx - textWidth / 2 - gap - lineLen, lineY);
     ctx.lineTo(cx - textWidth / 2 - gap, lineY);
@@ -213,25 +233,12 @@
     ctx.restore();
   }
 
-  function drawFooter(w, h, accent, base) {
-    ctx.save();
-    ctx.font = `600 ${Math.round(w * 0.02)}px 'Poppins', sans-serif`;
-    ctx.fillStyle = base;
-    ctx.globalAlpha = 0.7;
-    ctx.textAlign = "right";
-    if (handle.value.trim()) {
-      ctx.fillText(handle.value.trim(), w - w * 0.06, h - h * 0.035);
-    }
-    ctx.restore();
-  }
-
-  // Standard brand mark, centered at the top of every template. Fit
-  // ("contain") within a maxWidthRatio x maxHeightRatio box so it works
-  // for both a roughly-square mark and a wide horizontal lockup — sizing
-  // off height alone (as this once did) sends a wide logo past the card's
-  // edges. Returns the vertical space it used (0 if no logo is loaded) so
-  // callers can push their content down to make room for it.
-  function drawTopLogo(w, h, topY, maxWidthRatio, maxHeightRatio, { backdrop = false } = {}) {
+  // Brand mark, centered near the bottom of every template. Fit ("contain")
+  // within a maxWidthRatio x maxHeightRatio box so it works for both a
+  // roughly-square mark and a wide horizontal lockup. Returns the total
+  // vertical space it (plus its bottom margin) used, 0 if no logo is
+  // loaded, so callers can keep body text clear of it.
+  function drawBottomLogo(w, h, bottomMarginRatio, maxWidthRatio, maxHeightRatio, { backdrop = false } = {}) {
     if (!logoImage) return 0;
     let logoW = w * maxWidthRatio;
     let logoH = logoW * (logoImage.height / logoImage.width);
@@ -240,6 +247,8 @@
       logoW = logoH * (logoImage.width / logoImage.height);
     }
     const x = w / 2 - logoW / 2;
+    const bottomMargin = h * bottomMarginRatio;
+    const y = h - bottomMargin - logoH;
 
     if (backdrop) {
       ctx.save();
@@ -249,13 +258,13 @@
       ctx.fillStyle = "rgba(255,255,255,0.9)";
       const pad = logoH * 0.35;
       ctx.beginPath();
-      ctx.roundRect(x - pad, topY - pad, logoW + pad * 2, logoH + pad * 2, logoH * 0.3);
+      ctx.roundRect(x - pad, y - pad, logoW + pad * 2, logoH + pad * 2, logoH * 0.3);
       ctx.fill();
       ctx.restore();
     }
 
-    ctx.drawImage(logoImage, x, topY, logoW, logoH);
-    return logoH;
+    ctx.drawImage(logoImage, x, y, logoW, logoH);
+    return bottomMargin + logoH;
   }
 
   function coverDraw(img, w, h) {
@@ -308,17 +317,9 @@
     const maxWidth = w - marginX * 2;
 
     if (tpl === "statement") {
-      let areaTop;
-      if (logoImage) {
-        const logoTopY = h * 0.045;
-        const logoH = drawTopLogo(w, h, logoTopY, 0.7, 0.2);
-        areaTop = logoTopY + logoH + h * 0.04;
-      } else {
-        const dividerY = h * 0.14;
-        drawDivider(w / 2, dividerY, wordmark.value || "SPACEBACK", accent, w);
-        areaTop = h * 0.22;
-      }
-      const areaBottom = h * 0.82;
+      drawDivider(w / 2, h * 0.095, wordmark.value || "SPACEBACK", accent, w);
+      const areaTop = h * 0.19;
+      const areaBottom = h * 0.76;
       const { size, lines } = fitStyledText(
         tokens, maxWidth, areaBottom - areaTop, family, 900, w * 0.09, w * 0.03, 1.15, true
       );
@@ -344,10 +345,18 @@
         ctx.restore();
       }
 
-      drawFooter(w, h, accent, base);
+      drawBottomLogo(w, h, 0.045, 0.42, 0.065);
 
     } else if (tpl === "photo") {
-      if (logoImage) drawTopLogo(w, h, h * 0.04, 0.7, 0.2, { backdrop: true });
+      // A dark scrim band behind the top banner so it stays legible
+      // regardless of the photo underneath (the existing bottom gradient
+      // only darkens the lower half of the frame).
+      const topScrim = ctx.createLinearGradient(0, 0, 0, h * 0.22);
+      topScrim.addColorStop(0, "rgba(0,0,0,0.55)");
+      topScrim.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = topScrim;
+      ctx.fillRect(0, 0, w, h * 0.22);
+      drawDivider(w / 2, h * 0.095, wordmark.value || "SPACEBACK", "#ffffff", w);
 
       const areaTop = h * 0.55;
       const areaBottom = h * 0.92;
@@ -375,26 +384,13 @@
         ctx.restore();
       }
 
-      drawFooter(w, h, accent, "#ffffff");
+      drawBottomLogo(w, h, 0.045, 0.4, 0.06, { backdrop: true });
 
     } else if (tpl === "classic") {
-      let areaTop;
-      if (logoImage) {
-        const logoTopY = h * 0.06;
-        const logoH = drawTopLogo(w, h, logoTopY, 0.7, 0.2);
-        areaTop = logoTopY + logoH + h * 0.05;
-      } else {
-        ctx.save();
-        ctx.font = `700 ${Math.round(w * 0.15)}px 'Playfair Display', serif`;
-        ctx.fillStyle = accent;
-        ctx.globalAlpha = 0.5;
-        ctx.textAlign = "center";
-        ctx.fillText("“", w / 2, h * 0.28);
-        ctx.restore();
-        areaTop = h * 0.3;
-      }
+      drawDivider(w / 2, h * 0.11, wordmark.value || "SPACEBACK", accent, w);
+      const areaTop = h * 0.2;
 
-      const areaBottom = h * 0.78;
+      const areaBottom = h * 0.74;
       const { size, lines } = fitStyledText(
         tokens, maxWidth, areaBottom - areaTop, family, 700, w * 0.07, w * 0.026, 1.25, false
       );
@@ -424,7 +420,7 @@
         ctx.restore();
       }
 
-      drawFooter(w, h, accent, base);
+      drawBottomLogo(w, h, 0.045, 0.42, 0.065);
     }
   }
 
@@ -567,7 +563,7 @@
   themeFilter.addEventListener("change", populateItemPicker);
   loadItemBtn.addEventListener("click", loadItemIntoEditor);
 
-  [mainText, highlightText, authorText, sourceText, bgColor, textColor, accentColor, fontFamily, wordmark, handle]
+  [mainText, highlightText, authorText, sourceText, bgColor, textColor, accentColor, fontFamily, wordmark]
     .forEach((elm) => elm.addEventListener("input", render));
 
   cardType.addEventListener("change", () => { toggleAttributionFields(); render(); });

@@ -15,10 +15,18 @@
     {
       "id": "b-01",
       "date": "2026-10-01"
+    },
+    {
+      "id": "f-03",
+      "date": "2026-10-01"
+    },
+    {
+      "id": "b-02",
+      "date": "2026-10-01"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": false,
+  "lastQuoteTemplateWasClassic": true,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -81,6 +89,40 @@
           "sourceUrl": null,
           "file": "generated/2026-10-01T01-52-50-629Z/card-2.png",
           "suggestedCaption": "\"AI doesn't replace creative judgment. It multiplies how many ideas you can test before you commit a media budget to one.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-01T02-13-10-341Z",
+      "createdAt": "2026-10-01T02:13:11.702Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "f-03",
+          "theme": "facts",
+          "campaign": "targeting",
+          "type": "fact",
+          "template": "statement",
+          "text": "High-quality creative delivers up to 4.7x higher ROI than average creative.",
+          "author": null,
+          "source": "WARC & Kantar, \"Top-quality creative quadruples your profit\"",
+          "sourceUrl": "https://www.warc.com/content/feed/top-quality-creative-quadruples-your-profit/en-GB/7840",
+          "file": "generated/2026-10-01T02-13-10-341Z/card-1.png",
+          "suggestedCaption": "High-quality creative delivers up to 4.7x higher ROI than average creative. (Source: WARC & Kantar, \"Top-quality creative quadruples your profit\")"
+        },
+        {
+          "itemId": "b-02",
+          "theme": "creative-fatigue",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "text": "The algorithm doesn't get tired of your audience. Your creative does.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-01T02-13-10-341Z/card-2.png",
+          "suggestedCaption": "\"The algorithm doesn't get tired of your audience. Your creative does.\" — Spaceback"
         }
       ]
     }

@@ -24,9 +24,9 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
-function themeLabel(themeId) {
-  const theme = CONTENT_LIBRARY.themes.find((t) => t.id === themeId);
-  return theme ? theme.label : themeId;
+function campaignLabel(campaignId) {
+  const campaign = (CONTENT_LIBRARY.campaigns || []).find((c) => c.id === campaignId);
+  return campaign ? campaign.label : campaignId;
 }
 
 function main() {
@@ -43,7 +43,7 @@ function main() {
     const imageDataUrl = "data:image/png;base64," + fs.readFileSync(imgPath).toString("base64");
     return {
       type: item.type,
-      themeLabel: themeLabel(item.theme),
+      campaignLabel: campaignLabel(item.campaign),
       caption: escapeHtml(item.suggestedCaption),
       plainCaption: item.suggestedCaption,
       sourceUrl: item.sourceUrl || null,

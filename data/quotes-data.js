@@ -17,8 +17,21 @@
  *         verify:true in anything with real stakes (a client deck, a paid
  *         placement, etc.) — secondary ad-tech blogs reword and round
  *         survey numbers a lot.
+ *
+ * campaign: which of Q4's two fixed campaign themes this item belongs to
+ *           ("targeting" or "impression" — see `campaigns` below). The
+ *           scheduled batch pipeline always produces one post per campaign,
+ *           so every item meant for automated rotation needs this set.
  */
 const CONTENT_LIBRARY = {
+
+  // Q4's two fixed campaign themes. Every scheduled batch produces exactly
+  // one post per campaign — the label is what's displayed as the banner at
+  // the top of the card.
+  campaigns: [
+    { id: "targeting", label: "Creative Is The New Targeting" },
+    { id: "impression", label: "Make Every Impression A Spaceback Impression" },
+  ],
 
   themes: [
     { id: "facts", label: "Facts & Stats" },
@@ -32,28 +45,28 @@ const CONTENT_LIBRARY = {
   items: [
     // ---------------- Facts & Stats: creative vs. targeting ----------------
     {
-      id: "f-01", type: "fact", theme: "facts",
+      id: "f-01", type: "fact", theme: "facts", campaign: "targeting",
       text: "Creative quality and messaging drive 49% of a brand's sales lift from advertising, more than targeting, reach, and media buying combined.",
       highlight: "49%",
       source: "Nielsen Catalina Solutions, \"Five Keys to Advertising Effectiveness\"",
       sourceUrl: "https://info.ncsolutions.com/hubfs/2023%20Five%20Keys%20to%20Advertising%20Effectiveness/NCS_Five_Keys_to_Advertising_Effectiveness_E-Book_08-23.pdf",
     },
     {
-      id: "f-02", type: "fact", theme: "facts",
+      id: "f-02", type: "fact", theme: "facts", campaign: "targeting",
       text: "For digital campaigns specifically, creative drives 56% of sales lift, compared to just 30% from media factors like targeting and reach.",
       highlight: ["56%", "30%"],
       source: "Nielsen Catalina Solutions",
       sourceUrl: "https://info.ncsolutions.com/hubfs/2023%20Five%20Keys%20to%20Advertising%20Effectiveness/NCS_Five_Keys_to_Advertising_Effectiveness_E-Book_08-23.pdf",
     },
     {
-      id: "f-03", type: "fact", theme: "facts",
+      id: "f-03", type: "fact", theme: "facts", campaign: "targeting",
       text: "High-quality creative delivers up to 4.7x higher ROI than average creative.",
       highlight: "4.7x higher ROI",
       source: "WARC & Kantar, \"Top-quality creative quadruples your profit\"",
       sourceUrl: "https://www.warc.com/content/feed/top-quality-creative-quadruples-your-profit/en-GB/7840",
     },
     {
-      id: "f-04", type: "fact", theme: "facts",
+      id: "f-04", type: "fact", theme: "facts", campaign: "targeting",
       text: "In 2006, creative accounted for 65% of advertising's sales lift. Media's influence has since doubled, and creative still outweighs it at 49%.",
       highlight: ["65%", "49%"],
       source: "Nielsen Catalina Solutions (trend data)",
@@ -62,117 +75,117 @@ const CONTENT_LIBRARY = {
 
     // ---------------- Creative Is The New Targeting (verified quotes) ----------------
     {
-      id: "q-01", type: "quote", theme: "creative-performance",
+      id: "q-01", type: "quote", theme: "creative-performance", campaign: "targeting",
       text: "If it doesn't sell, it isn't creative.",
       author: "David Ogilvy", highlight: "it isn't creative",
     },
     {
-      id: "q-02", type: "quote", theme: "creative-performance",
+      id: "q-02", type: "quote", theme: "creative-performance", campaign: "targeting",
       text: "Nobody counts the number of ads you run; they just remember the impression you make.",
       author: "Bill Bernbach", highlight: "the impression you make",
     },
     {
-      id: "q-03", type: "quote", theme: "creative-performance",
+      id: "q-03", type: "quote", theme: "creative-performance", campaign: "targeting",
       text: "It took a nation to put a man on the moon, but it takes only one man to create a great ad.",
       author: "Bill Bernbach", highlight: "create a great ad",
     },
     {
-      id: "q-04", type: "quote", theme: "creative-performance",
+      id: "q-04", type: "quote", theme: "creative-performance", campaign: "targeting",
       text: "An idea can turn to dust or magic, depending on the talent that rubs against it.",
       author: "Bill Bernbach", highlight: "dust or magic",
     },
     {
-      id: "q-05", type: "quote", theme: "creative-performance",
+      id: "q-05", type: "quote", theme: "creative-performance", campaign: "targeting",
       text: "In the modern world of business, it is useless to be a creative, original thinker unless you can also sell what you create.",
       author: "David Ogilvy", highlight: "sell what you create",
     },
     {
-      id: "q-06", type: "quote", theme: "creative-performance",
+      id: "q-06", type: "quote", theme: "creative-performance", campaign: "targeting",
       text: "Make it simple. Make it memorable. Make it inviting to look at. Make it fun to read.",
       author: "Leo Burnett", highlight: "Make it memorable",
     },
 
     // ---------------- Facts & Stats: AI for creative production ----------------
     {
-      id: "f-05", type: "fact", theme: "facts",
+      id: "f-05", type: "fact", theme: "facts", campaign: "impression",
       text: "43% of enterprise marketing teams now use AI to generate at least some of their ad creative, up from just 8% two years earlier.",
       highlight: ["43%", "8%"], verify: true,
       source: "Industry survey, widely cited (verify primary source before client-facing use)",
       sourceUrl: "https://www.zocket.com/blog/state-of-ai-ad-creation",
     },
     {
-      id: "f-06", type: "fact", theme: "facts",
+      id: "f-06", type: "fact", theme: "facts", campaign: "impression",
       text: "58% of marketers are using generative AI for content production.",
       highlight: "58%",
       source: "Gartner survey (October), as reported by eMarketer",
       sourceUrl: "https://www.emarketer.com/content/ai-coming-your-creative-team-first--marketers-say",
     },
     {
-      id: "f-07", type: "fact", theme: "facts",
+      id: "f-07", type: "fact", theme: "facts", campaign: "impression",
       text: "86% of advertising buyers are using or plan to use generative AI to build video ad creative.",
       highlight: "86%", verify: true,
       source: "Industry survey, widely cited (verify primary source before client-facing use)",
       sourceUrl: "https://lumalabs.ai/news/ai-powered-advertising-campaign-statistics",
     },
     {
-      id: "f-08", type: "fact", theme: "facts",
+      id: "f-08", type: "fact", theme: "facts", campaign: "impression",
       text: "Marketers using generative AI for creative report saving 5+ hours a week, with AI-assisted production cutting time-to-launch by about 30%.",
       highlight: ["5+ hours a week", "30%"], verify: true,
       source: "Industry survey, widely cited (verify primary source before client-facing use)",
       sourceUrl: "https://www.digitalapplied.com/blog/ai-marketing-statistics-2026-adoption-data-points",
     },
     {
-      id: "b-01", type: "quote", theme: "ai-creative",
+      id: "b-01", type: "quote", theme: "ai-creative", campaign: "impression",
       text: "AI doesn't replace creative judgment. It multiplies how many ideas you can test before you commit a media budget to one.",
       author: "Spaceback", highlight: "multiplies how many ideas",
     },
 
     // ---------------- Facts & Stats: creative fatigue ----------------
     {
-      id: "f-09", type: "fact", theme: "facts",
+      id: "f-09", type: "fact", theme: "facts", campaign: "impression",
       text: "Top-performing ads lose roughly 38% of their effectiveness after just 5 weeks running unchanged.",
       highlight: "38%", verify: true,
       source: "Ad-tech industry analysis, widely cited (verify primary source before client-facing use)",
       sourceUrl: "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
     },
     {
-      id: "f-10", type: "fact", theme: "facts",
+      id: "f-10", type: "fact", theme: "facts", campaign: "impression",
       text: "When creative fatigue goes unaddressed, average cost-per-acquisition can rise as much as 40% within two weeks.",
       highlight: "40%", verify: true,
       source: "Ad-tech industry analysis, widely cited (verify primary source before client-facing use)",
       sourceUrl: "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
     },
     {
-      id: "f-11", type: "fact", theme: "facts",
+      id: "f-11", type: "fact", theme: "facts", campaign: "impression",
       text: "A steady cadence of 3 to 5 new creative variations a week can extend an ad's effective lifespan from 10-14 days to 21-30 days.",
       highlight: ["3 to 5 new creative variations", "21-30 days"], verify: true,
       source: "Ad-tech industry analysis, widely cited (verify primary source before client-facing use)",
       sourceUrl: "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
     },
     {
-      id: "b-02", type: "quote", theme: "creative-fatigue",
+      id: "b-02", type: "quote", theme: "creative-fatigue", campaign: "impression",
       text: "The algorithm doesn't get tired of your audience. Your creative does.",
       author: "Spaceback", highlight: "Your creative does",
     },
     {
-      id: "b-03", type: "quote", theme: "creative-fatigue",
+      id: "b-03", type: "quote", theme: "creative-fatigue", campaign: "impression",
       text: "More targeting can't fix an ad nobody wants to look at twice.",
       author: "Spaceback", highlight: "look at twice",
     },
 
     // ---------------- Social-Native Ad Formats ----------------
     {
-      id: "b-04", type: "quote", theme: "format-innovation",
+      id: "b-04", type: "quote", theme: "format-innovation", campaign: "impression",
       text: "The best-performing ad on the web is rarely the one built for display. It's the one built for a feed, repurposed with intent.",
       author: "Spaceback", highlight: "repurposed with intent",
     },
     {
-      id: "b-05", type: "quote", theme: "format-innovation",
+      id: "b-05", type: "quote", theme: "format-innovation", campaign: "impression",
       text: "Interactive doesn't mean more creative work. It means the same creative, working harder.",
       author: "Spaceback", highlight: "working harder",
     },
     {
-      id: "b-06", type: "quote", theme: "format-innovation",
+      id: "b-06", type: "quote", theme: "format-innovation", campaign: "impression",
       text: "People already trust the look of a social post. Display advertising spent twenty years training them to distrust everything else.",
       author: "Spaceback", highlight: "trust the look of a social post",
     },

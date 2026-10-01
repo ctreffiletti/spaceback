@@ -68,12 +68,18 @@ Everything lives in `data/quotes-data.js` as a plain array. Current themes:
 
 ## The scheduled batch pipeline
 
-`scripts/generate-batch.js` picks one Fact/Stat plus one quote (rotating
-through Creative Is The New Targeting → AI for Creative Production → Why
-More Creative Wins → Social-Native Ad Formats), avoiding anything used
-recently, renders both to PNG, and records the pick in
-`data/post-history.json`. `scripts/build-review-page.js` turns that batch
-into a standalone review page (`review/template.html`) meant to be
+Q4's content rotates between two fixed campaign themes (`campaigns` in
+`data/quotes-data.js`): **Creative Is The New Targeting** and **Make Every
+Impression A Spaceback Impression**. Every batch generates exactly one post
+per theme — never two of the same — so the reviewer always has a choice of
+which theme to post that cycle. Each item in the library carries a
+`campaign` field tagging which of the two it belongs to.
+
+`scripts/generate-batch.js` picks the least-recently-used item from each
+campaign's pool, renders both to PNG (banner with the campaign name at the
+top of the card, Spaceback logo centered at the bottom), and records the
+pick in `data/post-history.json`. `scripts/build-review-page.js` turns that
+batch into a standalone review page (`review/template.html`) meant to be
 published as a Claude Artifact with the `downloads` capability, so there's
 a working download button without exposing any secrets client-side.
 

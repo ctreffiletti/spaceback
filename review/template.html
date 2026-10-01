@@ -203,16 +203,16 @@
 <header>
   <span class="eyebrow">Spaceback — Batch __BATCH_ID__</span>
   <h1>Pick this cycle's post</h1>
-  <p class="sub">Two cards generated for __BATCH_DATE__. Download the one you're posting — that's the whole approval step for now. Once LinkedIn/Instagram posting is connected, this page will ask before anything goes live instead.</p>
+  <p class="sub">One card for each of this quarter's two campaign themes, generated for __BATCH_DATE__. Download the one you're posting — that's the whole approval step for now. Once LinkedIn/Instagram posting is connected, this page will ask before anything goes live instead.</p>
 </header>
 
 <div class="board" id="board"></div>
 
 <footer>
-  Generated automatically from Spaceback's content library, avoiding
-  anything used recently and rotating through creative-performance,
-  AI-for-creative, creative fatigue, and ad-format themes. Edit the
-  source list in <code>data/quotes-data.js</code> any time.
+  Generated automatically from Spaceback's content library — one post for
+  "Creative Is The New Targeting" and one for "Make Every Impression A
+  Spaceback Impression," avoiding anything used recently within each theme.
+  Edit the source list in <code>data/quotes-data.js</code> any time.
 </footer>
 
 <script>
@@ -291,7 +291,7 @@
       <div class="card-body">
         <div class="tags">
           <span class="tag${card.type === 'fact' ? ' fact' : ''}">${card.type === 'fact' ? 'Fact / Stat' : 'Quote'}</span>
-          <span class="tag">${card.themeLabel}</span>
+          <span class="tag">${card.campaignLabel}</span>
         </div>
         <div class="caption-block">
           ${card.caption}
