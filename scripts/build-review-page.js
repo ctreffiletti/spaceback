@@ -44,10 +44,11 @@ function main() {
     return {
       type: item.type,
       campaignLabel: campaignLabel(item.campaign),
+      variant: item.variant,
       caption: escapeHtml(item.suggestedCaption),
       plainCaption: item.suggestedCaption,
       sourceUrl: item.sourceUrl || null,
-      filename: `spaceback-${batch.batchId.slice(0, 10)}-${item.itemId}.png`,
+      filename: `spaceback-${batch.batchId.slice(0, 10)}-${item.itemId}-${item.variant}.png`,
       imageDataUrl,
     };
   });

@@ -17,12 +17,8 @@
 
 ## Colors
 
-Because the logo is black ink (meant for a light background), the default
-palette is light-mode: white background, near-black text, a purple-pink
-accent — this was the first of the two directions given ("light background
-with purple and pink or black copy, or black background with white copy");
-the black-background option isn't available without a separate
-white/inverted version of the logo, which doesn't exist yet.
+The default palette is the light one: white background, near-black text, a
+purple-pink accent.
 
 | Role | Default hex |
 |---|---|
@@ -30,10 +26,14 @@ white/inverted version of the logo, which doesn't exist yet.
 | Text | `#111111` |
 | Accent | `#c026d3` |
 
-If you want a dark-mode variant later, I'd need an inverted (white) copy
-of the logo — either a separate file you provide, or I can generate one by
-inverting the black pixels in `logo-mark.png` programmatically (a direct
-color transform of your own asset, not a redesign).
+The scheduled batch pipeline also renders a dark variant of every pick
+(black background `#000000`, white text, same accent). Since the logo is
+black ink, it can't just sit on a black background — `drawBottomLogo` in
+`js/app.js` checks the background's luminance and automatically draws a
+white backdrop chip behind the logo whenever the background is dark, so the
+dark-mode cards don't need a separate inverted/white copy of the logo at
+all; this applies to manual edits in the Studio too (pick a dark background
+color and the chip appears automatically).
 
 Update the three `<input type="color">` defaults in `index.html` (search
 for `bgColor`, `textColor`, `accentColor`) if you want different exact

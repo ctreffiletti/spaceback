@@ -2,10 +2,12 @@
 
 A local web app for building branded quote/stat card graphics (same tool
 built for The Social Fabric, repointed at Spaceback's content): large bold
-text, a single-color background, a highlighted phrase in your accent
-color. Plus a scheduled pipeline that generates two new candidate posts
-every 3 days, builds a review page, and emails you a link to pick and
-download one.
+Montserrat ExtraBold text, a single-color background, a highlighted phrase
+in your accent color, a campaign-theme banner across the top, and the
+Spaceback logo centered at the bottom. Plus a scheduled pipeline that
+generates four new candidate posts every 3 days — a light and a dark
+variant of each campaign theme — builds a review page, and emails you a
+link to pick and download one.
 
 No build step, no server required.
 
@@ -76,15 +78,18 @@ which theme to post that cycle. Each item in the library carries a
 `campaign` field tagging which of the two it belongs to.
 
 `scripts/generate-batch.js` picks the least-recently-used item from each
-campaign's pool, renders both to PNG (banner with the campaign name at the
-top of the card, Spaceback logo centered at the bottom), and records the
-pick in `data/post-history.json`. `scripts/build-review-page.js` turns that
-batch into a standalone review page (`review/template.html`) meant to be
-published as a Claude Artifact with the `downloads` capability, so there's
-a working download button without exposing any secrets client-side.
+campaign's pool, then renders each pick **twice** — once in the light brand
+palette (white background, near-black text) and once in a dark variant
+(black background, white/bright text, the black-ink logo sitting on a white
+backdrop chip so it stays legible) — for 4 PNGs total per batch. It records
+the two underlying picks in `data/post-history.json`. `scripts/build-review-page.js`
+turns that batch into a standalone review page (`review/template.html`)
+meant to be published as a Claude Artifact with the `downloads` capability,
+so there's a working download button without exposing any secrets
+client-side.
 
 This mirrors The Social Fabric's setup exactly — same self-rescheduling
-trigger, every 3 days, emailing the two picks and a link to the review
+trigger, every 3 days, emailing all four picks and a link to the review
 page. The email never mentions The Social Fabric by name — this is a
 separate project with its own recipient.
 
@@ -92,6 +97,3 @@ separate project with its own recipient.
 
 - **No LinkedIn/Instagram API connection** — same situation as The Social
   Fabric: downloading and posting manually is the whole flow for now.
-- **No dark-mode variant** — the real logo is black ink, so only the
-  light-background palette is available until there's an inverted/white
-  version of it. See `assets/README.md`.

@@ -23,10 +23,18 @@
     {
       "id": "b-02",
       "date": "2026-10-01"
+    },
+    {
+      "id": "f-04",
+      "date": "2026-10-01"
+    },
+    {
+      "id": "b-03",
+      "date": "2026-10-01"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": true,
+  "lastQuoteTemplateWasClassic": false,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -123,6 +131,70 @@
           "sourceUrl": null,
           "file": "generated/2026-10-01T02-13-10-341Z/card-2.png",
           "suggestedCaption": "\"The algorithm doesn't get tired of your audience. Your creative does.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-01T02-28-55-497Z",
+      "createdAt": "2026-10-01T02:28:57.349Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "f-04",
+          "theme": "facts",
+          "campaign": "targeting",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "In 2006, creative accounted for 65% of advertising's sales lift. Media's influence has since doubled, and creative still outweighs it at 49%.",
+          "author": null,
+          "source": "Nielsen Catalina Solutions (trend data)",
+          "sourceUrl": "https://www.marketingcharts.com/advertising-trends-80662",
+          "file": "generated/2026-10-01T02-28-55-497Z/card-1-light.png",
+          "suggestedCaption": "In 2006, creative accounted for 65% of advertising's sales lift. Media's influence has since doubled, and creative still outweighs it at 49%. (Source: Nielsen Catalina Solutions (trend data))"
+        },
+        {
+          "itemId": "f-04",
+          "theme": "facts",
+          "campaign": "targeting",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "In 2006, creative accounted for 65% of advertising's sales lift. Media's influence has since doubled, and creative still outweighs it at 49%.",
+          "author": null,
+          "source": "Nielsen Catalina Solutions (trend data)",
+          "sourceUrl": "https://www.marketingcharts.com/advertising-trends-80662",
+          "file": "generated/2026-10-01T02-28-55-497Z/card-1-dark.png",
+          "suggestedCaption": "In 2006, creative accounted for 65% of advertising's sales lift. Media's influence has since doubled, and creative still outweighs it at 49%. (Source: Nielsen Catalina Solutions (trend data))"
+        },
+        {
+          "itemId": "b-03",
+          "theme": "creative-fatigue",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "More targeting can't fix an ad nobody wants to look at twice.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-01T02-28-55-497Z/card-2-light.png",
+          "suggestedCaption": "\"More targeting can't fix an ad nobody wants to look at twice.\" — Spaceback"
+        },
+        {
+          "itemId": "b-03",
+          "theme": "creative-fatigue",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "More targeting can't fix an ad nobody wants to look at twice.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-01T02-28-55-497Z/card-2-dark.png",
+          "suggestedCaption": "\"More targeting can't fix an ad nobody wants to look at twice.\" — Spaceback"
         }
       ]
     }

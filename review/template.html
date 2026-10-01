@@ -123,6 +123,8 @@
 
   .tag.fact { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
 
+  .tag.dark { background: #111111; color: #ffffff; border-color: #111111; }
+
   .caption-block {
     background: var(--surface-2);
     border: 1px solid var(--border);
@@ -203,7 +205,7 @@
 <header>
   <span class="eyebrow">Spaceback — Batch __BATCH_ID__</span>
   <h1>Pick this cycle's post</h1>
-  <p class="sub">One card for each of this quarter's two campaign themes, generated for __BATCH_DATE__. Download the one you're posting — that's the whole approval step for now. Once LinkedIn/Instagram posting is connected, this page will ask before anything goes live instead.</p>
+  <p class="sub">Four options generated for __BATCH_DATE__ — a light and a dark variant of each of this quarter's two campaign themes. Download the one you're posting — that's the whole approval step for now. Once LinkedIn/Instagram posting is connected, this page will ask before anything goes live instead.</p>
 </header>
 
 <div class="board" id="board"></div>
@@ -211,8 +213,9 @@
 <footer>
   Generated automatically from Spaceback's content library — one post for
   "Creative Is The New Targeting" and one for "Make Every Impression A
-  Spaceback Impression," avoiding anything used recently within each theme.
-  Edit the source list in <code>data/quotes-data.js</code> any time.
+  Spaceback Impression," each rendered in both a light and dark look,
+  avoiding anything used recently within each theme. Edit the source list in
+  <code>data/quotes-data.js</code> any time.
 </footer>
 
 <script>
@@ -292,6 +295,7 @@
         <div class="tags">
           <span class="tag${card.type === 'fact' ? ' fact' : ''}">${card.type === 'fact' ? 'Fact / Stat' : 'Quote'}</span>
           <span class="tag">${card.campaignLabel}</span>
+          <span class="tag${card.variant === 'dark' ? ' dark' : ''}">${card.variant === 'dark' ? 'Dark' : 'Light'}</span>
         </div>
         <div class="caption-block">
           ${card.caption}

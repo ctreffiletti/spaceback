@@ -2,10 +2,13 @@
 /*
  * Selects one item per Q4 campaign theme (data/quotes-data.js's
  * `campaigns` list — "Creative Is The New Targeting" and "Make Every
- * Impression A Spaceback Impression") that hasn't been used recently,
- * renders each to a PNG via a headless browser, and records the batch in
- * data/post-history.json. Every batch always has exactly one post per
- * campaign, so the reviewer picks whichever theme they want to post.
+ * Impression A Spaceback Impression") that hasn't been used recently, and
+ * renders each pick twice — once in the light brand palette, once in a dark
+ * variant (black background, white/bright text, logo on a white backdrop
+ * chip) — for 4 PNGs total per batch. Records the batch in
+ * data/post-history.json. Every batch always has exactly one light and one
+ * dark post per campaign, so the reviewer picks whichever theme and look
+ * they want to post.
  *
  * Usage: node scripts/generate-batch.js [--format 1080x1350]
  *
@@ -20,6 +23,11 @@ const { findChromiumExecutable } = require("./lib/find-chromium");
 const ROOT = path.resolve(__dirname, "..");
 const HISTORY_PATH = path.join(ROOT, "data", "post-history.json");
 const CONTENT_LIBRARY = require(path.join(ROOT, "data", "quotes-data.js"));
+
+const VARIANTS = [
+  { id: "light", colors: { bg: "#ffffff", text: "#111111", accent: "#c026d3" } },
+  { id: "dark", colors: { bg: "#000000", text: "#ffffff", accent: "#c026d3" } },
+];
 
 function loadHistory() {
   if (!fs.existsSync(HISTORY_PATH)) {
@@ -67,10 +75,11 @@ function templateForItem(item, history) {
   return history.lastQuoteTemplateWasClassic ? "statement" : "classic";
 }
 
-async function renderItem(page, item, template, format, outPath) {
+async function renderItem(page, item, template, format, colors, outPath) {
   await page.evaluate((id) => window.QuoteCardApp.loadItem(id), item.id);
   await page.evaluate((t) => window.QuoteCardApp.setTemplate(t), template);
   await page.evaluate((f) => window.QuoteCardApp.setFormat(f), format);
+  await page.evaluate((c) => window.QuoteCardApp.setColors(c), colors);
   await page.evaluate(() => window.QuoteCardApp.ready());
   await page.waitForTimeout(150); // let the font-swap repaint settle
   const dataUrl = await page.evaluate(() => window.QuoteCardApp.exportPNGDataUrl());
@@ -115,12 +124,27 @@ async function main() {
   await page.waitForTimeout(300);
 
   const templates = picks.map((item) => templateForItem(item, history));
-  const files = [];
+  const renderedItems = [];
 
   for (let i = 0; i < picks.length; i++) {
-    const outPath = path.join(outDir, `card-${i + 1}.png`);
-    await renderItem(page, picks[i], templates[i], format, outPath);
-    files.push(path.relative(ROOT, outPath));
+    for (const variant of VARIANTS) {
+      const outPath = path.join(outDir, `card-${i + 1}-${variant.id}.png`);
+      await renderItem(page, picks[i], templates[i], format, variant.colors, outPath);
+      renderedItems.push({
+        itemId: picks[i].id,
+        theme: picks[i].theme,
+        campaign: picks[i].campaign,
+        type: picks[i].type,
+        template: templates[i],
+        variant: variant.id,
+        text: picks[i].text,
+        author: picks[i].author || null,
+        source: picks[i].source || null,
+        sourceUrl: picks[i].sourceUrl || null,
+        file: path.relative(ROOT, outPath),
+        suggestedCaption: suggestedCaption(picks[i]),
+      });
+    }
   }
 
   await browser.close();
@@ -136,19 +160,7 @@ async function main() {
     createdAt: new Date().toISOString(),
     format,
     status: "pending",
-    items: picks.map((item, i) => ({
-      itemId: item.id,
-      theme: item.theme,
-      campaign: item.campaign,
-      type: item.type,
-      template: templates[i],
-      text: item.text,
-      author: item.author || null,
-      source: item.source || null,
-      sourceUrl: item.sourceUrl || null,
-      file: files[i],
-      suggestedCaption: suggestedCaption(item),
-    })),
+    items: renderedItems,
   };
   history.batches.push(batchRecord);
   if (history.batches.length > 100) history.batches = history.batches.slice(-100);

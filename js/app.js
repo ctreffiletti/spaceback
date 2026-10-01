@@ -198,39 +198,78 @@
   }
 
   // ---------- Divider / theme banner ----------
-  // Shows the campaign theme name at the top of every card. Auto-fits the
-  // font size down so a long label ("MAKE EVERY IMPRESSION A SPACEBACK
-  // IMPRESSION") still fits the card width with room for flanking lines,
-  // without needing a different layout for short vs. long labels.
-  function drawDivider(cx, y, label, color, canvasWidth) {
+  // Shows the campaign theme name at the top of every card, wrapped onto two
+  // lines (balanced at the best word-boundary split) with the flanking lines
+  // vertically centered between them. Auto-fits the font size down so a long
+  // label ("MAKE EVERY IMPRESSION A SPACEBACK IMPRESSION") still fits the
+  // card width. Returns the total vertical space the banner used so callers
+  // can push their content down to make room for it.
+  function splitIntoTwoLines(text) {
+    const words = text.split(" ");
+    if (words.length < 2) return [text];
+    let best = null;
+    for (let i = 1; i < words.length; i++) {
+      const line1 = words.slice(0, i).join(" ");
+      const line2 = words.slice(i).join(" ");
+      const w1 = ctx.measureText(line1).width;
+      const w2 = ctx.measureText(line2).width;
+      const maxW = Math.max(w1, w2);
+      if (!best || maxW < best.maxW) best = { lines: [line1, line2], widths: [w1, w2], maxW };
+    }
+    return best;
+  }
+
+  function drawDivider(cx, topY, label, color, canvasWidth) {
     ctx.save();
     const text = (label || "").toUpperCase();
     const maxTextWidth = canvasWidth * 0.62;
-    let fontSize = Math.round(canvasWidth * 0.024);
-    const minFontSize = Math.round(canvasWidth * 0.013);
-    let textWidth;
+    let fontSize = Math.round(canvasWidth * 0.027);
+    const minFontSize = Math.round(canvasWidth * 0.015);
+    let split;
     while (true) {
       ctx.font = `600 ${fontSize}px 'Poppins', sans-serif`;
-      ctx.letterSpacing = fontSize >= canvasWidth * 0.02 ? "3px" : "1.5px";
-      textWidth = ctx.measureText(text).width;
-      if (textWidth <= maxTextWidth || fontSize <= minFontSize) break;
+      ctx.letterSpacing = fontSize >= canvasWidth * 0.022 ? "3px" : "1.5px";
+      split = splitIntoTwoLines(text);
+      const widestLine = split.widths ? split.maxW : ctx.measureText(split[0]).width;
+      if (widestLine <= maxTextWidth || fontSize <= minFontSize) break;
       fontSize -= 1;
     }
+    const lines = split.lines || split;
+    const widths = split.widths || [ctx.measureText(lines[0]).width];
+    const widestLine = Math.max(...widths);
+
     ctx.textAlign = "center";
     ctx.fillStyle = color;
-    ctx.fillText(text, cx, y);
+    const lineHeight = fontSize * 1.15;
+    lines.forEach((line, i) => ctx.fillText(line, cx, topY + i * lineHeight));
+
     ctx.strokeStyle = color;
     ctx.lineWidth = 1.5;
-    const lineLen = Math.max(canvasWidth * 0.06, (canvasWidth * 0.86 - textWidth) / 2 - 20);
+    const lineLen = Math.max(canvasWidth * 0.06, (canvasWidth * 0.86 - widestLine) / 2 - 20);
     const gap = 14;
-    const lineY = y - fontSize * 0.35;
+    // Vertically centered between the two text lines (collapses to the
+    // single-line case's old position when there's only one line).
+    const midY = topY + (lineHeight * (lines.length - 1)) / 2 - fontSize * 0.35;
     ctx.beginPath();
-    ctx.moveTo(cx - textWidth / 2 - gap - lineLen, lineY);
-    ctx.lineTo(cx - textWidth / 2 - gap, lineY);
-    ctx.moveTo(cx + textWidth / 2 + gap, lineY);
-    ctx.lineTo(cx + textWidth / 2 + gap + lineLen, lineY);
+    ctx.moveTo(cx - widestLine / 2 - gap - lineLen, midY);
+    ctx.lineTo(cx - widestLine / 2 - gap, midY);
+    ctx.moveTo(cx + widestLine / 2 + gap, midY);
+    ctx.lineTo(cx + widestLine / 2 + gap + lineLen, midY);
     ctx.stroke();
     ctx.restore();
+
+    return lines.length * lineHeight;
+  }
+
+  // Relative luminance (0 = black, 1 = white) of a "#rrggbb" color, used to
+  // decide whether the (black-ink) logo needs a light backdrop chip to stay
+  // legible — e.g. the dark-background card variant.
+  function relativeLuminance(hex) {
+    const c = (hex || "#ffffff").replace("#", "");
+    const r = parseInt(c.substring(0, 2), 16) / 255;
+    const g = parseInt(c.substring(2, 4), 16) / 255;
+    const b = parseInt(c.substring(4, 6), 16) / 255;
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
   }
 
   // Brand mark, centered near the bottom of every template. Fit ("contain")
@@ -317,20 +356,21 @@
     const maxWidth = w - marginX * 2;
 
     if (tpl === "statement") {
-      drawDivider(w / 2, h * 0.095, wordmark.value || "SPACEBACK", accent, w);
-      const areaTop = h * 0.19;
+      const bannerTopY = h * 0.075;
+      const bannerHeight = drawDivider(w / 2, bannerTopY, wordmark.value || "SPACEBACK", accent, w);
+      const areaTop = bannerTopY + bannerHeight + h * 0.04;
       const areaBottom = h * 0.76;
       const { size, lines } = fitStyledText(
-        tokens, maxWidth, areaBottom - areaTop, family, 900, w * 0.09, w * 0.03, 1.15, true
+        tokens, maxWidth, areaBottom - areaTop, family, 800, w * 0.09, w * 0.03, 1.15, true
       );
       const totalTextHeight = lines.length * size * 1.15;
       const startY = areaTop + (areaBottom - areaTop - totalTextHeight) / 2 + size * 0.85;
       ctx.textAlign = "left";
-      const usedHeight = drawStyledLines(lines, size, 1.15, w / 2, startY, base, accent, 900, family);
+      const usedHeight = drawStyledLines(lines, size, 1.15, w / 2, startY, base, accent, 800, family);
 
       if (isFact && sourceText.value.trim()) {
         ctx.save();
-        ctx.font = `500 ${Math.round(w * 0.02)}px 'Poppins', sans-serif`;
+        ctx.font = `500 ${Math.round(w * 0.023)}px 'Poppins', sans-serif`;
         ctx.fillStyle = base;
         ctx.globalAlpha = 0.6;
         ctx.textAlign = "center";
@@ -338,45 +378,45 @@
         ctx.restore();
       } else if (!isFact && authorText.value.trim()) {
         ctx.save();
-        ctx.font = `600 ${Math.round(w * 0.03)}px 'Poppins', sans-serif`;
+        ctx.font = `600 ${Math.round(w * 0.034)}px 'Poppins', sans-serif`;
         ctx.fillStyle = accent;
         ctx.textAlign = "center";
         ctx.fillText("~ " + authorText.value.trim().toUpperCase(), w / 2, startY + usedHeight - size * 1.15 + size * 1.7);
         ctx.restore();
       }
 
-      drawBottomLogo(w, h, 0.045, 0.42, 0.065);
+      drawBottomLogo(w, h, 0.045, 0.42, 0.065, { backdrop: relativeLuminance(bgColor.value) < 0.5 });
 
     } else if (tpl === "photo") {
       // A dark scrim band behind the top banner so it stays legible
       // regardless of the photo underneath (the existing bottom gradient
       // only darkens the lower half of the frame).
-      const topScrim = ctx.createLinearGradient(0, 0, 0, h * 0.22);
+      const topScrim = ctx.createLinearGradient(0, 0, 0, h * 0.26);
       topScrim.addColorStop(0, "rgba(0,0,0,0.55)");
       topScrim.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = topScrim;
-      ctx.fillRect(0, 0, w, h * 0.22);
-      drawDivider(w / 2, h * 0.095, wordmark.value || "SPACEBACK", "#ffffff", w);
+      ctx.fillRect(0, 0, w, h * 0.26);
+      drawDivider(w / 2, h * 0.075, wordmark.value || "SPACEBACK", "#ffffff", w);
 
       const areaTop = h * 0.55;
       const areaBottom = h * 0.92;
       const { size, lines } = fitStyledText(
-        tokens, maxWidth, areaBottom - areaTop, family, 900, w * 0.075, w * 0.028, 1.12, true
+        tokens, maxWidth, areaBottom - areaTop, family, 800, w * 0.075, w * 0.028, 1.12, true
       );
       ctx.textAlign = "left";
       let y = areaTop + size * 0.9;
-      const usedHeight = drawStyledLines(lines, size, 1.12, w / 2, y, "#ffffff", accent, 900, family);
+      const usedHeight = drawStyledLines(lines, size, 1.12, w / 2, y, "#ffffff", accent, 800, family);
 
       if (!isFact && authorText.value.trim()) {
         ctx.save();
-        ctx.font = `600 ${Math.round(w * 0.028)}px 'Poppins', sans-serif`;
+        ctx.font = `600 ${Math.round(w * 0.032)}px 'Poppins', sans-serif`;
         ctx.fillStyle = accent;
         ctx.textAlign = "center";
         ctx.fillText("~ " + authorText.value.trim().toUpperCase(), w / 2, y + usedHeight - size * 1.12 + size * 1.6);
         ctx.restore();
       } else if (isFact && sourceText.value.trim()) {
         ctx.save();
-        ctx.font = `500 ${Math.round(w * 0.018)}px 'Poppins', sans-serif`;
+        ctx.font = `500 ${Math.round(w * 0.021)}px 'Poppins', sans-serif`;
         ctx.fillStyle = "#ffffff";
         ctx.globalAlpha = 0.75;
         ctx.textAlign = "center";
@@ -387,17 +427,18 @@
       drawBottomLogo(w, h, 0.045, 0.4, 0.06, { backdrop: true });
 
     } else if (tpl === "classic") {
-      drawDivider(w / 2, h * 0.11, wordmark.value || "SPACEBACK", accent, w);
-      const areaTop = h * 0.2;
+      const bannerTopY = h * 0.09;
+      const bannerHeight = drawDivider(w / 2, bannerTopY, wordmark.value || "SPACEBACK", accent, w);
+      const areaTop = bannerTopY + bannerHeight + h * 0.045;
 
       const areaBottom = h * 0.74;
       const { size, lines } = fitStyledText(
-        tokens, maxWidth, areaBottom - areaTop, family, 700, w * 0.07, w * 0.026, 1.25, false
+        tokens, maxWidth, areaBottom - areaTop, family, 800, w * 0.07, w * 0.026, 1.25, false
       );
       const totalTextHeight = lines.length * size * 1.25;
       const startY = areaTop + (areaBottom - areaTop - totalTextHeight) / 2 + size * 0.85;
       ctx.textAlign = "left";
-      const usedHeight = drawStyledLines(lines, size, 1.25, w / 2, startY, base, accent, 700, family);
+      const usedHeight = drawStyledLines(lines, size, 1.25, w / 2, startY, base, accent, 800, family);
 
       ctx.save();
       ctx.strokeStyle = accent;
@@ -412,7 +453,7 @@
       const label = isFact ? sourceText.value.trim() : authorText.value.trim();
       if (label) {
         ctx.save();
-        ctx.font = `600 ${Math.round(w * 0.026)}px 'Poppins', sans-serif`;
+        ctx.font = `600 ${Math.round(w * 0.03)}px 'Poppins', sans-serif`;
         ctx.fillStyle = base;
         ctx.globalAlpha = 0.85;
         ctx.textAlign = "center";
@@ -420,7 +461,7 @@
         ctx.restore();
       }
 
-      drawBottomLogo(w, h, 0.045, 0.42, 0.065);
+      drawBottomLogo(w, h, 0.045, 0.42, 0.065, { backdrop: relativeLuminance(bgColor.value) < 0.5 });
     }
   }
 
