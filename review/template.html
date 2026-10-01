@@ -1,0 +1,327 @@
+<title>Spaceback Review Queue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #12132a;
+    --surface: #1c1e3c;
+    --surface-2: #262952;
+    --border: #34366b;
+    --text: #f6f4ec;
+    --text-muted: #a9acd6;
+    --accent: #f0a807;
+    --accent-ink: #211500;
+    --success: #7fd99a;
+    --font-display: 'Anton', 'Arial Narrow', sans-serif;
+    --font-body: 'Poppins', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding-inline: 20px;
+    padding-block: 28px 48px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  header {
+    width: 100%;
+    max-width: 920px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    font-size: clamp(28px, 5vw, 38px);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .sub {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    line-height: 1.5;
+    max-width: 65ch;
+  }
+
+  .board {
+    width: 100%;
+    max-width: 920px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card figure {
+    margin: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .card-body {
+    padding: 18px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+
+  .tag.fact { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
+
+  .caption-block {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--text);
+  }
+
+  .caption-block .source {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  button {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    flex: 1;
+  }
+
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent);
+  }
+
+  .btn-primary:hover { filter: brightness(1.06); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+  }
+
+  .btn-secondary:hover { border-color: var(--text-muted); }
+
+  .status-line {
+    font-size: 12px;
+    color: var(--text-muted);
+    min-height: 16px;
+  }
+
+  .status-line.ok { color: var(--success); }
+  .status-line.error { color: #e0645a; }
+
+  footer {
+    width: 100%;
+    max-width: 920px;
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+    color: var(--text-muted);
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 480px) {
+    .board { grid-template-columns: 1fr; }
+  }
+</style>
+
+<header>
+  <span class="eyebrow">Spaceback — Batch __BATCH_ID__</span>
+  <h1>Pick this cycle's post</h1>
+  <p class="sub">Two cards generated for __BATCH_DATE__. Download the one you're posting — that's the whole approval step for now. Once LinkedIn/Instagram posting is connected, this page will ask before anything goes live instead.</p>
+</header>
+
+<div class="board" id="board"></div>
+
+<footer>
+  Generated automatically from Spaceback's content library, avoiding
+  anything used recently and rotating through creative-performance,
+  AI-for-creative, creative fatigue, and ad-format themes. Edit the
+  source list in <code>data/quotes-data.js</code> any time.
+</footer>
+
+<script>
+  const CARDS = __CARDS_JSON__;
+
+  const inClaudeHost = typeof window !== "undefined" && !!window.claude && typeof window.claude.use === "function";
+  let downloadsCapabilityPromise = null;
+  function getDownloadsCapability() {
+    if (downloadsCapabilityPromise) return downloadsCapabilityPromise;
+    downloadsCapabilityPromise = inClaudeHost ? window.claude.use("downloads").catch(() => null) : Promise.resolve(null);
+    return downloadsCapabilityPromise;
+  }
+
+  function anchorDownload(href, name) {
+    const a = document.createElement("a");
+    a.href = href;
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  // Decodes a data: URL straight into a Blob with no network involved.
+  // Some sandboxed hosts restrict fetch() even against same-page data:
+  // URIs (a CSP connect-src gap), which is a needless dependency here —
+  // base64 decoding is synchronous and local.
+  function dataUrlToBlob(dataUrl) {
+    const [header, base64] = dataUrl.split(",");
+    const mime = (header.match(/data:(.*?);base64/) || [, "application/octet-stream"])[1];
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return new Blob([bytes], { type: mime });
+  }
+
+  async function triggerDownload(dataUrl, name, statusEl) {
+    if (inClaudeHost) {
+      // A plain <a download> link is inert in this sandbox — if the save
+      // capability isn't available or rejects, that's a real dead end to
+      // report, not something to paper over with a fallback that would
+      // just look like it silently did nothing.
+      statusEl.textContent = "Saving…";
+      statusEl.classList.remove("ok", "error");
+      try {
+        const downloads = await getDownloadsCapability();
+        if (!downloads) {
+          statusEl.textContent = "Download unavailable in this view — try reloading the page.";
+          statusEl.classList.add("error");
+          return;
+        }
+        const blob = dataUrlToBlob(dataUrl);
+        const result = await downloads.save({ filename: name, data: blob });
+        statusEl.textContent = result.status === "delivered" ? "Sent." : "Saved.";
+        statusEl.classList.add("ok");
+      } catch (err) {
+        if (err && err.code === "declined") { statusEl.textContent = "Cancelled."; return; }
+        const detail = (err && err.code) || (err && err.message) || String(err);
+        statusEl.textContent = `Download failed: ${detail}`;
+        statusEl.classList.add("error");
+        console.warn("downloads.save failed:", err);
+      }
+      return;
+    }
+
+    anchorDownload(dataUrl, name);
+    statusEl.textContent = "Downloaded.";
+    statusEl.classList.add("ok");
+  }
+
+  const board = document.getElementById("board");
+  CARDS.forEach((card, idx) => {
+    const el = document.createElement("div");
+    el.className = "card";
+    el.innerHTML = `
+      <figure><img src="${card.imageDataUrl}" alt="${card.type === 'fact' ? 'Stat card' : 'Quote card'} ${idx + 1}"></figure>
+      <div class="card-body">
+        <div class="tags">
+          <span class="tag${card.type === 'fact' ? ' fact' : ''}">${card.type === 'fact' ? 'Fact / Stat' : 'Quote'}</span>
+          <span class="tag">${card.themeLabel}</span>
+        </div>
+        <div class="caption-block">
+          ${card.caption}
+          ${card.sourceUrl ? `<a class="source" href="${card.sourceUrl}" target="_blank" rel="noopener">${card.sourceUrl}</a>` : ""}
+        </div>
+        <div class="card-actions">
+          <button class="btn-primary" data-idx="${idx}" data-action="download">Download PNG</button>
+          <button class="btn-secondary" data-idx="${idx}" data-action="copy">Copy caption</button>
+        </div>
+        <div class="status-line" data-status="${idx}"></div>
+      </div>`;
+    board.appendChild(el);
+  });
+
+  board.addEventListener("click", async (e) => {
+    const btn = e.target.closest("button[data-action]");
+    if (!btn) return;
+    const idx = Number(btn.dataset.idx);
+    const card = CARDS[idx];
+    const statusEl = board.querySelector(`[data-status="${idx}"]`);
+    if (btn.dataset.action === "download") {
+      triggerDownload(card.imageDataUrl, card.filename, statusEl);
+    } else if (btn.dataset.action === "copy") {
+      try {
+        await navigator.clipboard.writeText(card.plainCaption);
+        statusEl.textContent = "Caption copied.";
+        statusEl.classList.add("ok");
+      } catch (err) {
+        statusEl.textContent = "Couldn't copy — select the text above manually.";
+      }
+    }
+  });
+</script>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spaceback — Quote Card Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Poppins:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand-mark">SPACEBACK</div>
+  <div class="tagline">Quote Card Studio — build LinkedIn/Instagram posts in your visual style</div>
+</header>
+
+<main class="layout">
+
+  <!-- ============ CONTROLS ============ -->
+  <section class="panel controls">
+
+    <div class="control-group">
+      <label>1. Pull from library</label>
+      <div class="row">
+        <select id="themeFilter"></select>
+        <select id="itemPicker"></select>
+      </div>
+      <button id="loadItemBtn" class="btn secondary full">Load into editor ↓</button>
+    </div>
+
+    <div class="control-group">
+      <label>2. Content (edit freely)</label>
+      <select id="cardType">
+        <option value="quote">Quote (with attribution)</option>
+        <option value="fact">Fact / Stat (with source line)</option>
+      </select>
+      <textarea id="mainText" rows="4" placeholder="Type or paste the quote / statement here...">If it doesn't sell, it isn't creative.</textarea>
+      <input id="highlightText" type="text" placeholder="Phrase(s) to color-highlight, comma separated (optional)" value="it isn't creative">
+      <input id="authorText" type="text" placeholder="Attribution, e.g. David Ogilvy" value="David Ogilvy">
+      <input id="sourceText" type="text" placeholder="Source line (facts only), e.g. Nielsen Catalina Solutions, 2023">
+    </div>
+
+    <div class="control-group">
+      <label>3. Template & format</label>
+      <div class="row">
+        <select id="template">
+          <option value="statement">Bold Statement (divider + caps)</option>
+          <option value="photo">Photo Background</option>
+          <option value="classic">Classic Centered Quote</option>
+        </select>
+        <select id="format">
+          <option value="1080x1350">Feed post 4:5 (1080×1350) — recommended</option>
+          <option value="1080x1080">Feed post 1:1 square (1080×1080)</option>
+          <option value="1080x1920">Story / Reel 9:16 (1080×1920) — NOT for a feed post, gets cropped</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>4. Brand look</label>
+      <div class="row">
+        <div class="swatch-field">
+          <span>Background</span>
+          <input id="bgColor" type="color" value="#0e0f13">
+        </div>
+        <div class="swatch-field">
+          <span>Text</span>
+          <input id="textColor" type="color" value="#f2f3f5">
+        </div>
+        <div class="swatch-field">
+          <span>Accent</span>
+          <input id="accentColor" type="color" value="#ff5a36">
+        </div>
+      </div>
+      <select id="fontFamily">
+        <option value="'Anton', sans-serif">Anton (bold impact)</option>
+        <option value="'Archivo Black', sans-serif">Archivo Black</option>
+        <option value="'Bebas Neue', sans-serif">Bebas Neue (tall condensed)</option>
+        <option value="'Poppins', sans-serif">Poppins ExtraBold</option>
+        <option value="'Playfair Display', serif">Playfair Display (editorial serif)</option>
+      </select>
+      <input id="wordmark" type="text" placeholder="Wordmark shown in the divider" value="SPACEBACK">
+      <input id="handle" type="text" placeholder="Handle shown bottom-right" value="@spaceback">
+    </div>
+
+    <div class="control-group" id="photoGroup" hidden>
+      <label>5. Background photo (Photo template)</label>
+      <input id="bgImageInput" type="file" accept="image/*">
+      <label class="slider-label">Dim overlay <span id="dimVal">55%</span></label>
+      <input id="dimSlider" type="range" min="0" max="90" value="55">
+    </div>
+
+    <div class="control-group">
+      <label>Logo (standard, centered at the top of every card)</label>
+      <input id="logoInput" type="file" accept="image/*">
+      <button id="clearLogoBtn" class="btn tiny">Clear logo</button>
+    </div>
+
+    <div class="control-group actions">
+      <button id="downloadBtn" class="btn primary full">Download PNG</button>
+      <button id="queueBtn" class="btn secondary full">Add to batch queue</button>
+      <p id="downloadStatus" class="hint"></p>
+    </div>
+
+  </section>
+
+  <!-- ============ PREVIEW ============ -->
+  <section class="panel preview">
+    <div class="canvas-wrap">
+      <canvas id="cardCanvas" width="1080" height="1350"></canvas>
+    </div>
+    <p class="hint">Preview scales to fit — exported PNG is always full 1080px resolution.</p>
+  </section>
+
+</main>
+
+<!-- ============ BATCH QUEUE ============ -->
+<section class="panel queue">
+  <div class="queue-header">
+    <h2>Batch queue <span id="queueCount">(0)</span></h2>
+    <div>
+      <button id="downloadAllBtn" class="btn secondary">Download all (.zip)</button>
+      <button id="clearQueueBtn" class="btn tiny">Clear queue</button>
+    </div>
+  </div>
+  <div id="queueGrid" class="queue-grid"></div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="assets/logo-mark-embed.js"></script>
+<script src="data/quotes-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

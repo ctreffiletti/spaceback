@@ -1,0 +1,4 @@
+node_modules/
+generated/
+package-lock.json
+review/index.html

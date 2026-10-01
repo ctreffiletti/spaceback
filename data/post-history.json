@@ -1,0 +1,48 @@
+{
+  "usedLog": [
+    {
+      "id": "f-01",
+      "date": "2026-10-01"
+    },
+    {
+      "id": "q-01",
+      "date": "2026-10-01"
+    }
+  ],
+  "lastQuoteThemeIndex": 0,
+  "lastQuoteTemplateWasClassic": true,
+  "batches": [
+    {
+      "batchId": "2026-10-01T01-40-06-481Z",
+      "createdAt": "2026-10-01T01:40:09.364Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "f-01",
+          "theme": "facts",
+          "type": "fact",
+          "template": "statement",
+          "text": "Creative quality and messaging drive 49% of a brand's sales lift from advertising, more than targeting, reach, and media buying combined.",
+          "author": null,
+          "source": "Nielsen Catalina Solutions, \"Five Keys to Advertising Effectiveness\"",
+          "sourceUrl": "https://info.ncsolutions.com/hubfs/2023%20Five%20Keys%20to%20Advertising%20Effectiveness/NCS_Five_Keys_to_Advertising_Effectiveness_E-Book_08-23.pdf",
+          "file": "generated/2026-10-01T01-40-06-481Z/card-1.png",
+          "suggestedCaption": "Creative quality and messaging drive 49% of a brand's sales lift from advertising, more than targeting, reach, and media buying combined. (Source: Nielsen Catalina Solutions, \"Five Keys to Advertising Effectiveness\")"
+        },
+        {
+          "itemId": "q-01",
+          "theme": "creative-performance",
+          "type": "quote",
+          "template": "classic",
+          "text": "If it doesn't sell, it isn't creative.",
+          "author": "David Ogilvy",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-01T01-40-06-481Z/card-2.png",
+          "suggestedCaption": "\"If it doesn't sell, it isn't creative.\" — David Ogilvy"
+        }
+      ]
+    }
+  ]
+}

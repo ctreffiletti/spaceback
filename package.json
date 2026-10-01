@@ -1,0 +1,12 @@
+{
+  "name": "spaceback-quote-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Quote/stat card generator and scheduled batch pipeline for Spaceback's LinkedIn/Instagram content.",
+  "scripts": {
+    "generate-batch": "node scripts/generate-batch.js"
+  },
+  "devDependencies": {
+    "playwright": "1.48.0"
+  }
+}
