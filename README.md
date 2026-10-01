@@ -59,14 +59,20 @@ Everything lives in `data/quotes-data.js` as a plain array. Current themes:
 - **Creative Is The New Targeting** — verified quotes from Ogilvy,
   Bernbach, and Leo Burnett (all long-established, safely attributed ad
   history, not recent/uncertain attributions).
-  **How you can use AI to create more creative**, **Why more creative
-  drives better performance**, and **Social-Native Ad Formats** mostly use
+  **Creative Inspiration**, **AI for Creative Production**, **Why More
+  Creative Wins**, and **Social-Native Ad Formats** mostly use
   Spaceback-original lines (`author: "Spaceback"`) rather than borrowed
   quotes, since there isn't an equivalent canon of safely-attributable
   historical quotes on those newer topics the way there is for classic ad
   creative. Swap in real client quotes, your own research, or quotes from
   people at Spaceback as you get them — there's a placeholder item showing
   the format.
+
+  **Content guidelines for anything added here:** keep the tone positive
+  and supportive — lean into how more/better creative *helps* rather than
+  how its absence hurts (avoid "can't"/"nobody"/decline framing). Avoid
+  stats tied to a specific old year (an early stat comparing against 2006
+  data was pulled for reading stale) — prefer stats that read as current.
 
 ## The scheduled batch pipeline
 

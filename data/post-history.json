@@ -31,10 +31,18 @@
     {
       "id": "b-03",
       "date": "2026-10-01"
+    },
+    {
+      "id": "ai-03",
+      "date": "2026-10-01"
+    },
+    {
+      "id": "ai-02",
+      "date": "2026-10-01"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": false,
+  "lastQuoteTemplateWasClassic": true,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -195,6 +203,70 @@
           "sourceUrl": null,
           "file": "generated/2026-10-01T02-28-55-497Z/card-2-dark.png",
           "suggestedCaption": "\"More targeting can't fix an ad nobody wants to look at twice.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-01T02-41-44-822Z",
+      "createdAt": "2026-10-01T02:41:48.184Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "ai-03",
+          "theme": "ai-creative",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "The teams getting the most out of AI aren't replacing their creatives — they're giving them more time to create.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-01T02-41-44-822Z/card-1-light.png",
+          "suggestedCaption": "\"The teams getting the most out of AI aren't replacing their creatives — they're giving them more time to create.\" — Spaceback"
+        },
+        {
+          "itemId": "ai-03",
+          "theme": "ai-creative",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "The teams getting the most out of AI aren't replacing their creatives — they're giving them more time to create.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-01T02-41-44-822Z/card-1-dark.png",
+          "suggestedCaption": "\"The teams getting the most out of AI aren't replacing their creatives — they're giving them more time to create.\" — Spaceback"
+        },
+        {
+          "itemId": "ai-02",
+          "theme": "ai-creative",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-01T02-41-44-822Z/card-2-light.png",
+          "suggestedCaption": "\"AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.\" — Spaceback"
+        },
+        {
+          "itemId": "ai-02",
+          "theme": "ai-creative",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-01T02-41-44-822Z/card-2-dark.png",
+          "suggestedCaption": "\"AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.\" — Spaceback"
         }
       ]
     }

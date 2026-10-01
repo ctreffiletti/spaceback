@@ -22,6 +22,12 @@
  *           ("targeting" or "impression" — see `campaigns` below). The
  *           scheduled batch pipeline always produces one post per campaign,
  *           so every item meant for automated rotation needs this set.
+ *
+ * Content guidelines: keep the tone positive and supportive, leaning into
+ * how more/better creative helps rather than how its absence hurts — avoid
+ * framing built around failure, decline, or "can't"/"nobody". Avoid stats
+ * tied to a specific old year (a 2006 comparison stat was pulled for being
+ * stale) — prefer stats that read as current or timeless.
  */
 const CONTENT_LIBRARY = {
 
@@ -36,6 +42,7 @@ const CONTENT_LIBRARY = {
   themes: [
     { id: "facts", label: "Facts & Stats" },
     { id: "creative-performance", label: "Creative Is The New Targeting" },
+    { id: "creativity", label: "Creative Inspiration" },
     { id: "ai-creative", label: "AI for Creative Production" },
     { id: "creative-fatigue", label: "Why More Creative Wins" },
     { id: "format-innovation", label: "Social-Native Ad Formats" },
@@ -65,14 +72,6 @@ const CONTENT_LIBRARY = {
       source: "WARC & Kantar, \"Top-quality creative quadruples your profit\"",
       sourceUrl: "https://www.warc.com/content/feed/top-quality-creative-quadruples-your-profit/en-GB/7840",
     },
-    {
-      id: "f-04", type: "fact", theme: "facts", campaign: "targeting",
-      text: "In 2006, creative accounted for 65% of advertising's sales lift. Media's influence has since doubled, and creative still outweighs it at 49%.",
-      highlight: ["65%", "49%"],
-      source: "Nielsen Catalina Solutions (trend data)",
-      sourceUrl: "https://www.marketingcharts.com/advertising-trends-80662",
-    },
-
     // ---------------- Creative Is The New Targeting (verified quotes) ----------------
     {
       id: "q-01", type: "quote", theme: "creative-performance", campaign: "targeting",
@@ -136,8 +135,13 @@ const CONTENT_LIBRARY = {
     },
     {
       id: "b-01", type: "quote", theme: "ai-creative", campaign: "impression",
-      text: "AI doesn't replace creative judgment. It multiplies how many ideas you can test before you commit a media budget to one.",
-      author: "Spaceback", highlight: "multiplies how many ideas",
+      text: "AI gives creative teams more time for the one thing a model can't do: have the idea in the first place.",
+      author: "Spaceback", highlight: "have the idea",
+    },
+    {
+      id: "ai-02", type: "quote", theme: "ai-creative", campaign: "impression",
+      text: "AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.",
+      author: "Spaceback", highlight: "room to try the idea",
     },
 
     // ---------------- Facts & Stats: creative fatigue ----------------
@@ -164,30 +168,47 @@ const CONTENT_LIBRARY = {
     },
     {
       id: "b-02", type: "quote", theme: "creative-fatigue", campaign: "impression",
-      text: "The algorithm doesn't get tired of your audience. Your creative does.",
-      author: "Spaceback", highlight: "Your creative does",
+      text: "Fresh creative keeps paying off — a steady stream of new ideas is what keeps an audience leaning in.",
+      author: "Spaceback", highlight: "keeps paying off",
     },
     {
       id: "b-03", type: "quote", theme: "creative-fatigue", campaign: "impression",
-      text: "More targeting can't fix an ad nobody wants to look at twice.",
-      author: "Spaceback", highlight: "look at twice",
+      text: "The campaigns that keep performing are the ones that never stop making new creative.",
+      author: "Spaceback", highlight: "never stop making new creative",
     },
 
     // ---------------- Social-Native Ad Formats ----------------
     {
       id: "b-04", type: "quote", theme: "format-innovation", campaign: "impression",
-      text: "The best-performing ad on the web is rarely the one built for display. It's the one built for a feed, repurposed with intent.",
-      author: "Spaceback", highlight: "repurposed with intent",
+      text: "The best-performing ad on the web usually started life as a social post — built for a feed, and built to be seen.",
+      author: "Spaceback", highlight: "built to be seen",
     },
     {
       id: "b-05", type: "quote", theme: "format-innovation", campaign: "impression",
-      text: "Interactive doesn't mean more creative work. It means the same creative, working harder.",
-      author: "Spaceback", highlight: "working harder",
+      text: "Interactive doesn't mean more creative work — it means your existing creative works even harder for you.",
+      author: "Spaceback", highlight: "works even harder",
     },
     {
       id: "b-06", type: "quote", theme: "format-innovation", campaign: "impression",
-      text: "People already trust the look of a social post. Display advertising spent twenty years training them to distrust everything else.",
+      text: "People already trust the look of a social post — that trust is exactly what a social-native ad gets to borrow.",
       author: "Spaceback", highlight: "trust the look of a social post",
+    },
+
+    // ---------------- Creative Inspiration (general) ----------------
+    {
+      id: "c-01", type: "quote", theme: "creativity", campaign: "impression",
+      text: "Great creative doesn't just get noticed — it gets remembered long after the scroll stops.",
+      author: "Spaceback", highlight: "gets remembered",
+    },
+    {
+      id: "c-02", type: "quote", theme: "creativity", campaign: "targeting",
+      text: "The most effective ad in the world is still, first, a good idea.",
+      author: "Spaceback", highlight: "a good idea",
+    },
+    {
+      id: "ai-03", type: "quote", theme: "ai-creative", campaign: "targeting",
+      text: "The teams getting the most out of AI aren't replacing their creatives — they're giving them more time to create.",
+      author: "Spaceback", highlight: "more time to create",
     },
 
     // ---------------- Editable placeholders ----------------
