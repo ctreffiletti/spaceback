@@ -39,10 +39,18 @@
     {
       "id": "ai-02",
       "date": "2026-10-01"
+    },
+    {
+      "id": "c-02",
+      "date": "2026-10-04"
+    },
+    {
+      "id": "b-04",
+      "date": "2026-10-04"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": true,
+  "lastQuoteTemplateWasClassic": false,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -267,6 +275,70 @@
           "sourceUrl": null,
           "file": "generated/2026-10-01T02-41-44-822Z/card-2-dark.png",
           "suggestedCaption": "\"AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-04T02-45-40-473Z",
+      "createdAt": "2026-10-04T02:45:43.240Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "c-02",
+          "theme": "creativity",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "The most effective ad in the world is still, first, a good idea.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-04T02-45-40-473Z/card-1-light.png",
+          "suggestedCaption": "\"The most effective ad in the world is still, first, a good idea.\" — Spaceback"
+        },
+        {
+          "itemId": "c-02",
+          "theme": "creativity",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "The most effective ad in the world is still, first, a good idea.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-04T02-45-40-473Z/card-1-dark.png",
+          "suggestedCaption": "\"The most effective ad in the world is still, first, a good idea.\" — Spaceback"
+        },
+        {
+          "itemId": "b-04",
+          "theme": "format-innovation",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "The best-performing ad on the web usually started life as a social post — built for a feed, and built to be seen.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-04T02-45-40-473Z/card-2-light.png",
+          "suggestedCaption": "\"The best-performing ad on the web usually started life as a social post — built for a feed, and built to be seen.\" — Spaceback"
+        },
+        {
+          "itemId": "b-04",
+          "theme": "format-innovation",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "The best-performing ad on the web usually started life as a social post — built for a feed, and built to be seen.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-04T02-45-40-473Z/card-2-dark.png",
+          "suggestedCaption": "\"The best-performing ad on the web usually started life as a social post — built for a feed, and built to be seen.\" — Spaceback"
         }
       ]
     }
