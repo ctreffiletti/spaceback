@@ -47,10 +47,18 @@
     {
       "id": "b-04",
       "date": "2026-10-04"
+    },
+    {
+      "id": "q-02",
+      "date": "2026-10-07"
+    },
+    {
+      "id": "b-05",
+      "date": "2026-10-07"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": false,
+  "lastQuoteTemplateWasClassic": true,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -339,6 +347,70 @@
           "sourceUrl": null,
           "file": "generated/2026-10-04T02-45-40-473Z/card-2-dark.png",
           "suggestedCaption": "\"The best-performing ad on the web usually started life as a social post — built for a feed, and built to be seen.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-07T02-48-01-913Z",
+      "createdAt": "2026-10-07T02:48:05.310Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "q-02",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "Nobody counts the number of ads you run; they just remember the impression you make.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-07T02-48-01-913Z/card-1-light.png",
+          "suggestedCaption": "\"Nobody counts the number of ads you run; they just remember the impression you make.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "q-02",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "Nobody counts the number of ads you run; they just remember the impression you make.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-07T02-48-01-913Z/card-1-dark.png",
+          "suggestedCaption": "\"Nobody counts the number of ads you run; they just remember the impression you make.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "b-05",
+          "theme": "format-innovation",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "Interactive doesn't mean more creative work — it means your existing creative works even harder for you.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-07T02-48-01-913Z/card-2-light.png",
+          "suggestedCaption": "\"Interactive doesn't mean more creative work — it means your existing creative works even harder for you.\" — Spaceback"
+        },
+        {
+          "itemId": "b-05",
+          "theme": "format-innovation",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "Interactive doesn't mean more creative work — it means your existing creative works even harder for you.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-07T02-48-01-913Z/card-2-dark.png",
+          "suggestedCaption": "\"Interactive doesn't mean more creative work — it means your existing creative works even harder for you.\" — Spaceback"
         }
       ]
     }
