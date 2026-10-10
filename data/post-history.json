@@ -55,10 +55,18 @@
     {
       "id": "b-05",
       "date": "2026-10-07"
+    },
+    {
+      "id": "q-03",
+      "date": "2026-10-10"
+    },
+    {
+      "id": "b-06",
+      "date": "2026-10-10"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": true,
+  "lastQuoteTemplateWasClassic": false,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -411,6 +419,70 @@
           "sourceUrl": null,
           "file": "generated/2026-10-07T02-48-01-913Z/card-2-dark.png",
           "suggestedCaption": "\"Interactive doesn't mean more creative work — it means your existing creative works even harder for you.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-10T02-49-39-856Z",
+      "createdAt": "2026-10-10T02:49:44.297Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "q-03",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "It took a nation to put a man on the moon, but it takes only one man to create a great ad.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-10T02-49-39-856Z/card-1-light.png",
+          "suggestedCaption": "\"It took a nation to put a man on the moon, but it takes only one man to create a great ad.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "q-03",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "It took a nation to put a man on the moon, but it takes only one man to create a great ad.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-10T02-49-39-856Z/card-1-dark.png",
+          "suggestedCaption": "\"It took a nation to put a man on the moon, but it takes only one man to create a great ad.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "b-06",
+          "theme": "format-innovation",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "People already trust the look of a social post — that trust is exactly what a social-native ad gets to borrow.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-10T02-49-39-856Z/card-2-light.png",
+          "suggestedCaption": "\"People already trust the look of a social post — that trust is exactly what a social-native ad gets to borrow.\" — Spaceback"
+        },
+        {
+          "itemId": "b-06",
+          "theme": "format-innovation",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "People already trust the look of a social post — that trust is exactly what a social-native ad gets to borrow.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-10T02-49-39-856Z/card-2-dark.png",
+          "suggestedCaption": "\"People already trust the look of a social post — that trust is exactly what a social-native ad gets to borrow.\" — Spaceback"
         }
       ]
     }
