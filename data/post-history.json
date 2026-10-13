@@ -63,10 +63,18 @@
     {
       "id": "b-06",
       "date": "2026-10-10"
+    },
+    {
+      "id": "q-04",
+      "date": "2026-10-13"
+    },
+    {
+      "id": "c-01",
+      "date": "2026-10-13"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": false,
+  "lastQuoteTemplateWasClassic": true,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -483,6 +491,70 @@
           "sourceUrl": null,
           "file": "generated/2026-10-10T02-49-39-856Z/card-2-dark.png",
           "suggestedCaption": "\"People already trust the look of a social post — that trust is exactly what a social-native ad gets to borrow.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-13T02-53-56-528Z",
+      "createdAt": "2026-10-13T02:54:01.904Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "q-04",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "An idea can turn to dust or magic, depending on the talent that rubs against it.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-13T02-53-56-528Z/card-1-light.png",
+          "suggestedCaption": "\"An idea can turn to dust or magic, depending on the talent that rubs against it.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "q-04",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "An idea can turn to dust or magic, depending on the talent that rubs against it.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-13T02-53-56-528Z/card-1-dark.png",
+          "suggestedCaption": "\"An idea can turn to dust or magic, depending on the talent that rubs against it.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "c-01",
+          "theme": "creativity",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "Great creative doesn't just get noticed — it gets remembered long after the scroll stops.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-13T02-53-56-528Z/card-2-light.png",
+          "suggestedCaption": "\"Great creative doesn't just get noticed — it gets remembered long after the scroll stops.\" — Spaceback"
+        },
+        {
+          "itemId": "c-01",
+          "theme": "creativity",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "Great creative doesn't just get noticed — it gets remembered long after the scroll stops.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-13T02-53-56-528Z/card-2-dark.png",
+          "suggestedCaption": "\"Great creative doesn't just get noticed — it gets remembered long after the scroll stops.\" — Spaceback"
         }
       ]
     }
