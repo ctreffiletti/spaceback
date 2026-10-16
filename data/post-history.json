@@ -71,10 +71,18 @@
     {
       "id": "c-01",
       "date": "2026-10-13"
+    },
+    {
+      "id": "q-05",
+      "date": "2026-10-16"
+    },
+    {
+      "id": "f-05",
+      "date": "2026-10-16"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": true,
+  "lastQuoteTemplateWasClassic": false,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -555,6 +563,70 @@
           "sourceUrl": null,
           "file": "generated/2026-10-13T02-53-56-528Z/card-2-dark.png",
           "suggestedCaption": "\"Great creative doesn't just get noticed — it gets remembered long after the scroll stops.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-16T02-55-49-698Z",
+      "createdAt": "2026-10-16T02:56:00.589Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "q-05",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "In the modern world of business, it is useless to be a creative, original thinker unless you can also sell what you create.",
+          "author": "David Ogilvy",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-16T02-55-49-698Z/card-1-light.png",
+          "suggestedCaption": "\"In the modern world of business, it is useless to be a creative, original thinker unless you can also sell what you create.\" — David Ogilvy"
+        },
+        {
+          "itemId": "q-05",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "In the modern world of business, it is useless to be a creative, original thinker unless you can also sell what you create.",
+          "author": "David Ogilvy",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-16T02-55-49-698Z/card-1-dark.png",
+          "suggestedCaption": "\"In the modern world of business, it is useless to be a creative, original thinker unless you can also sell what you create.\" — David Ogilvy"
+        },
+        {
+          "itemId": "f-05",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "43% of enterprise marketing teams now use AI to generate at least some of their ad creative, up from just 8% two years earlier.",
+          "author": null,
+          "source": "Industry survey, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://www.zocket.com/blog/state-of-ai-ad-creation",
+          "file": "generated/2026-10-16T02-55-49-698Z/card-2-light.png",
+          "suggestedCaption": "43% of enterprise marketing teams now use AI to generate at least some of their ad creative, up from just 8% two years earlier. (Source: Industry survey, widely cited (verify primary source before client-facing use))"
+        },
+        {
+          "itemId": "f-05",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "43% of enterprise marketing teams now use AI to generate at least some of their ad creative, up from just 8% two years earlier.",
+          "author": null,
+          "source": "Industry survey, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://www.zocket.com/blog/state-of-ai-ad-creation",
+          "file": "generated/2026-10-16T02-55-49-698Z/card-2-dark.png",
+          "suggestedCaption": "43% of enterprise marketing teams now use AI to generate at least some of their ad creative, up from just 8% two years earlier. (Source: Industry survey, widely cited (verify primary source before client-facing use))"
         }
       ]
     }
