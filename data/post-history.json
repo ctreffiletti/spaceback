@@ -79,10 +79,18 @@
     {
       "id": "f-05",
       "date": "2026-10-16"
+    },
+    {
+      "id": "q-06",
+      "date": "2026-10-19"
+    },
+    {
+      "id": "f-06",
+      "date": "2026-10-19"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": false,
+  "lastQuoteTemplateWasClassic": true,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -627,6 +635,70 @@
           "sourceUrl": "https://www.zocket.com/blog/state-of-ai-ad-creation",
           "file": "generated/2026-10-16T02-55-49-698Z/card-2-dark.png",
           "suggestedCaption": "43% of enterprise marketing teams now use AI to generate at least some of their ad creative, up from just 8% two years earlier. (Source: Industry survey, widely cited (verify primary source before client-facing use))"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-19T02-57-43-728Z",
+      "createdAt": "2026-10-19T02:57:48.000Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "q-06",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "Make it simple. Make it memorable. Make it inviting to look at. Make it fun to read.",
+          "author": "Leo Burnett",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-19T02-57-43-728Z/card-1-light.png",
+          "suggestedCaption": "\"Make it simple. Make it memorable. Make it inviting to look at. Make it fun to read.\" — Leo Burnett"
+        },
+        {
+          "itemId": "q-06",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "Make it simple. Make it memorable. Make it inviting to look at. Make it fun to read.",
+          "author": "Leo Burnett",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-19T02-57-43-728Z/card-1-dark.png",
+          "suggestedCaption": "\"Make it simple. Make it memorable. Make it inviting to look at. Make it fun to read.\" — Leo Burnett"
+        },
+        {
+          "itemId": "f-06",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "58% of marketers are using generative AI for content production.",
+          "author": null,
+          "source": "Gartner survey (October), as reported by eMarketer",
+          "sourceUrl": "https://www.emarketer.com/content/ai-coming-your-creative-team-first--marketers-say",
+          "file": "generated/2026-10-19T02-57-43-728Z/card-2-light.png",
+          "suggestedCaption": "58% of marketers are using generative AI for content production. (Source: Gartner survey (October), as reported by eMarketer)"
+        },
+        {
+          "itemId": "f-06",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "58% of marketers are using generative AI for content production.",
+          "author": null,
+          "source": "Gartner survey (October), as reported by eMarketer",
+          "sourceUrl": "https://www.emarketer.com/content/ai-coming-your-creative-team-first--marketers-say",
+          "file": "generated/2026-10-19T02-57-43-728Z/card-2-dark.png",
+          "suggestedCaption": "58% of marketers are using generative AI for content production. (Source: Gartner survey (October), as reported by eMarketer)"
         }
       ]
     }
