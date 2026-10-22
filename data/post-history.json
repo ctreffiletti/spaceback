@@ -87,10 +87,18 @@
     {
       "id": "f-06",
       "date": "2026-10-19"
+    },
+    {
+      "id": "ai-03",
+      "date": "2026-10-22"
+    },
+    {
+      "id": "f-07",
+      "date": "2026-10-22"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": true,
+  "lastQuoteTemplateWasClassic": false,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -699,6 +707,70 @@
           "sourceUrl": "https://www.emarketer.com/content/ai-coming-your-creative-team-first--marketers-say",
           "file": "generated/2026-10-19T02-57-43-728Z/card-2-dark.png",
           "suggestedCaption": "58% of marketers are using generative AI for content production. (Source: Gartner survey (October), as reported by eMarketer)"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-22T03-04-18-872Z",
+      "createdAt": "2026-10-22T03:04:23.073Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "ai-03",
+          "theme": "ai-creative",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "The teams getting the most out of AI aren't replacing their creatives — they're giving them more time to create.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-22T03-04-18-872Z/card-1-light.png",
+          "suggestedCaption": "\"The teams getting the most out of AI aren't replacing their creatives — they're giving them more time to create.\" — Spaceback"
+        },
+        {
+          "itemId": "ai-03",
+          "theme": "ai-creative",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "The teams getting the most out of AI aren't replacing their creatives — they're giving them more time to create.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-10-22T03-04-18-872Z/card-1-dark.png",
+          "suggestedCaption": "\"The teams getting the most out of AI aren't replacing their creatives — they're giving them more time to create.\" — Spaceback"
+        },
+        {
+          "itemId": "f-07",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "86% of advertising buyers are using or plan to use generative AI to build video ad creative.",
+          "author": null,
+          "source": "Industry survey, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://lumalabs.ai/news/ai-powered-advertising-campaign-statistics",
+          "file": "generated/2026-10-22T03-04-18-872Z/card-2-light.png",
+          "suggestedCaption": "86% of advertising buyers are using or plan to use generative AI to build video ad creative. (Source: Industry survey, widely cited (verify primary source before client-facing use))"
+        },
+        {
+          "itemId": "f-07",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "86% of advertising buyers are using or plan to use generative AI to build video ad creative.",
+          "author": null,
+          "source": "Industry survey, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://lumalabs.ai/news/ai-powered-advertising-campaign-statistics",
+          "file": "generated/2026-10-22T03-04-18-872Z/card-2-dark.png",
+          "suggestedCaption": "86% of advertising buyers are using or plan to use generative AI to build video ad creative. (Source: Industry survey, widely cited (verify primary source before client-facing use))"
         }
       ]
     }
