@@ -95,10 +95,18 @@
     {
       "id": "f-07",
       "date": "2026-10-22"
+    },
+    {
+      "id": "f-01",
+      "date": "2026-10-25"
+    },
+    {
+      "id": "f-08",
+      "date": "2026-10-25"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": false,
+  "lastQuoteTemplateWasClassic": true,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -771,6 +779,70 @@
           "sourceUrl": "https://lumalabs.ai/news/ai-powered-advertising-campaign-statistics",
           "file": "generated/2026-10-22T03-04-18-872Z/card-2-dark.png",
           "suggestedCaption": "86% of advertising buyers are using or plan to use generative AI to build video ad creative. (Source: Industry survey, widely cited (verify primary source before client-facing use))"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-25T03-05-47-031Z",
+      "createdAt": "2026-10-25T03:05:59.148Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "f-01",
+          "theme": "facts",
+          "campaign": "targeting",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "Creative quality and messaging drive 49% of a brand's sales lift from advertising, more than targeting, reach, and media buying combined.",
+          "author": null,
+          "source": "Nielsen Catalina Solutions, \"Five Keys to Advertising Effectiveness\"",
+          "sourceUrl": "https://info.ncsolutions.com/hubfs/2023%20Five%20Keys%20to%20Advertising%20Effectiveness/NCS_Five_Keys_to_Advertising_Effectiveness_E-Book_08-23.pdf",
+          "file": "generated/2026-10-25T03-05-47-031Z/card-1-light.png",
+          "suggestedCaption": "Creative quality and messaging drive 49% of a brand's sales lift from advertising, more than targeting, reach, and media buying combined. (Source: Nielsen Catalina Solutions, \"Five Keys to Advertising Effectiveness\")"
+        },
+        {
+          "itemId": "f-01",
+          "theme": "facts",
+          "campaign": "targeting",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "Creative quality and messaging drive 49% of a brand's sales lift from advertising, more than targeting, reach, and media buying combined.",
+          "author": null,
+          "source": "Nielsen Catalina Solutions, \"Five Keys to Advertising Effectiveness\"",
+          "sourceUrl": "https://info.ncsolutions.com/hubfs/2023%20Five%20Keys%20to%20Advertising%20Effectiveness/NCS_Five_Keys_to_Advertising_Effectiveness_E-Book_08-23.pdf",
+          "file": "generated/2026-10-25T03-05-47-031Z/card-1-dark.png",
+          "suggestedCaption": "Creative quality and messaging drive 49% of a brand's sales lift from advertising, more than targeting, reach, and media buying combined. (Source: Nielsen Catalina Solutions, \"Five Keys to Advertising Effectiveness\")"
+        },
+        {
+          "itemId": "f-08",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "Marketers using generative AI for creative report saving 5+ hours a week, with AI-assisted production cutting time-to-launch by about 30%.",
+          "author": null,
+          "source": "Industry survey, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://www.digitalapplied.com/blog/ai-marketing-statistics-2026-adoption-data-points",
+          "file": "generated/2026-10-25T03-05-47-031Z/card-2-light.png",
+          "suggestedCaption": "Marketers using generative AI for creative report saving 5+ hours a week, with AI-assisted production cutting time-to-launch by about 30%. (Source: Industry survey, widely cited (verify primary source before client-facing use))"
+        },
+        {
+          "itemId": "f-08",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "Marketers using generative AI for creative report saving 5+ hours a week, with AI-assisted production cutting time-to-launch by about 30%.",
+          "author": null,
+          "source": "Industry survey, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://www.digitalapplied.com/blog/ai-marketing-statistics-2026-adoption-data-points",
+          "file": "generated/2026-10-25T03-05-47-031Z/card-2-dark.png",
+          "suggestedCaption": "Marketers using generative AI for creative report saving 5+ hours a week, with AI-assisted production cutting time-to-launch by about 30%. (Source: Industry survey, widely cited (verify primary source before client-facing use))"
         }
       ]
     }
