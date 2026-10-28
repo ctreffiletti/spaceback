@@ -103,10 +103,18 @@
     {
       "id": "f-08",
       "date": "2026-10-25"
+    },
+    {
+      "id": "f-02",
+      "date": "2026-10-28"
+    },
+    {
+      "id": "f-09",
+      "date": "2026-10-28"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": true,
+  "lastQuoteTemplateWasClassic": false,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -843,6 +851,70 @@
           "sourceUrl": "https://www.digitalapplied.com/blog/ai-marketing-statistics-2026-adoption-data-points",
           "file": "generated/2026-10-25T03-05-47-031Z/card-2-dark.png",
           "suggestedCaption": "Marketers using generative AI for creative report saving 5+ hours a week, with AI-assisted production cutting time-to-launch by about 30%. (Source: Industry survey, widely cited (verify primary source before client-facing use))"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-28T03-07-39-930Z",
+      "createdAt": "2026-10-28T03:07:55.091Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "f-02",
+          "theme": "facts",
+          "campaign": "targeting",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "For digital campaigns specifically, creative drives 56% of sales lift, compared to just 30% from media factors like targeting and reach.",
+          "author": null,
+          "source": "Nielsen Catalina Solutions",
+          "sourceUrl": "https://info.ncsolutions.com/hubfs/2023%20Five%20Keys%20to%20Advertising%20Effectiveness/NCS_Five_Keys_to_Advertising_Effectiveness_E-Book_08-23.pdf",
+          "file": "generated/2026-10-28T03-07-39-930Z/card-1-light.png",
+          "suggestedCaption": "For digital campaigns specifically, creative drives 56% of sales lift, compared to just 30% from media factors like targeting and reach. (Source: Nielsen Catalina Solutions)"
+        },
+        {
+          "itemId": "f-02",
+          "theme": "facts",
+          "campaign": "targeting",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "For digital campaigns specifically, creative drives 56% of sales lift, compared to just 30% from media factors like targeting and reach.",
+          "author": null,
+          "source": "Nielsen Catalina Solutions",
+          "sourceUrl": "https://info.ncsolutions.com/hubfs/2023%20Five%20Keys%20to%20Advertising%20Effectiveness/NCS_Five_Keys_to_Advertising_Effectiveness_E-Book_08-23.pdf",
+          "file": "generated/2026-10-28T03-07-39-930Z/card-1-dark.png",
+          "suggestedCaption": "For digital campaigns specifically, creative drives 56% of sales lift, compared to just 30% from media factors like targeting and reach. (Source: Nielsen Catalina Solutions)"
+        },
+        {
+          "itemId": "f-09",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "Top-performing ads lose roughly 38% of their effectiveness after just 5 weeks running unchanged.",
+          "author": null,
+          "source": "Ad-tech industry analysis, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
+          "file": "generated/2026-10-28T03-07-39-930Z/card-2-light.png",
+          "suggestedCaption": "Top-performing ads lose roughly 38% of their effectiveness after just 5 weeks running unchanged. (Source: Ad-tech industry analysis, widely cited (verify primary source before client-facing use))"
+        },
+        {
+          "itemId": "f-09",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "Top-performing ads lose roughly 38% of their effectiveness after just 5 weeks running unchanged.",
+          "author": null,
+          "source": "Ad-tech industry analysis, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
+          "file": "generated/2026-10-28T03-07-39-930Z/card-2-dark.png",
+          "suggestedCaption": "Top-performing ads lose roughly 38% of their effectiveness after just 5 weeks running unchanged. (Source: Ad-tech industry analysis, widely cited (verify primary source before client-facing use))"
         }
       ]
     }
