@@ -111,10 +111,18 @@
     {
       "id": "f-09",
       "date": "2026-10-28"
+    },
+    {
+      "id": "f-03",
+      "date": "2026-10-31"
+    },
+    {
+      "id": "f-10",
+      "date": "2026-10-31"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": false,
+  "lastQuoteTemplateWasClassic": true,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -915,6 +923,70 @@
           "sourceUrl": "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
           "file": "generated/2026-10-28T03-07-39-930Z/card-2-dark.png",
           "suggestedCaption": "Top-performing ads lose roughly 38% of their effectiveness after just 5 weeks running unchanged. (Source: Ad-tech industry analysis, widely cited (verify primary source before client-facing use))"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-10-31T03-09-50-156Z",
+      "createdAt": "2026-10-31T03:09:54.051Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "f-03",
+          "theme": "facts",
+          "campaign": "targeting",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "High-quality creative delivers up to 4.7x higher ROI than average creative.",
+          "author": null,
+          "source": "WARC & Kantar, \"Top-quality creative quadruples your profit\"",
+          "sourceUrl": "https://www.warc.com/content/feed/top-quality-creative-quadruples-your-profit/en-GB/7840",
+          "file": "generated/2026-10-31T03-09-50-156Z/card-1-light.png",
+          "suggestedCaption": "High-quality creative delivers up to 4.7x higher ROI than average creative. (Source: WARC & Kantar, \"Top-quality creative quadruples your profit\")"
+        },
+        {
+          "itemId": "f-03",
+          "theme": "facts",
+          "campaign": "targeting",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "High-quality creative delivers up to 4.7x higher ROI than average creative.",
+          "author": null,
+          "source": "WARC & Kantar, \"Top-quality creative quadruples your profit\"",
+          "sourceUrl": "https://www.warc.com/content/feed/top-quality-creative-quadruples-your-profit/en-GB/7840",
+          "file": "generated/2026-10-31T03-09-50-156Z/card-1-dark.png",
+          "suggestedCaption": "High-quality creative delivers up to 4.7x higher ROI than average creative. (Source: WARC & Kantar, \"Top-quality creative quadruples your profit\")"
+        },
+        {
+          "itemId": "f-10",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "When creative fatigue goes unaddressed, average cost-per-acquisition can rise as much as 40% within two weeks.",
+          "author": null,
+          "source": "Ad-tech industry analysis, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
+          "file": "generated/2026-10-31T03-09-50-156Z/card-2-light.png",
+          "suggestedCaption": "When creative fatigue goes unaddressed, average cost-per-acquisition can rise as much as 40% within two weeks. (Source: Ad-tech industry analysis, widely cited (verify primary source before client-facing use))"
+        },
+        {
+          "itemId": "f-10",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "When creative fatigue goes unaddressed, average cost-per-acquisition can rise as much as 40% within two weeks.",
+          "author": null,
+          "source": "Ad-tech industry analysis, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
+          "file": "generated/2026-10-31T03-09-50-156Z/card-2-dark.png",
+          "suggestedCaption": "When creative fatigue goes unaddressed, average cost-per-acquisition can rise as much as 40% within two weeks. (Source: Ad-tech industry analysis, widely cited (verify primary source before client-facing use))"
         }
       ]
     }
