@@ -119,10 +119,18 @@
     {
       "id": "f-10",
       "date": "2026-10-31"
+    },
+    {
+      "id": "q-01",
+      "date": "2026-11-03"
+    },
+    {
+      "id": "f-11",
+      "date": "2026-11-03"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": true,
+  "lastQuoteTemplateWasClassic": false,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -987,6 +995,70 @@
           "sourceUrl": "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
           "file": "generated/2026-10-31T03-09-50-156Z/card-2-dark.png",
           "suggestedCaption": "When creative fatigue goes unaddressed, average cost-per-acquisition can rise as much as 40% within two weeks. (Source: Ad-tech industry analysis, widely cited (verify primary source before client-facing use))"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-11-03T03-11-37-370Z",
+      "createdAt": "2026-11-03T03:11:41.152Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "q-01",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "If it doesn't sell, it isn't creative.",
+          "author": "David Ogilvy",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-03T03-11-37-370Z/card-1-light.png",
+          "suggestedCaption": "\"If it doesn't sell, it isn't creative.\" — David Ogilvy"
+        },
+        {
+          "itemId": "q-01",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "If it doesn't sell, it isn't creative.",
+          "author": "David Ogilvy",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-03T03-11-37-370Z/card-1-dark.png",
+          "suggestedCaption": "\"If it doesn't sell, it isn't creative.\" — David Ogilvy"
+        },
+        {
+          "itemId": "f-11",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "light",
+          "text": "A steady cadence of 3 to 5 new creative variations a week can extend an ad's effective lifespan from 10-14 days to 21-30 days.",
+          "author": null,
+          "source": "Ad-tech industry analysis, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
+          "file": "generated/2026-11-03T03-11-37-370Z/card-2-light.png",
+          "suggestedCaption": "A steady cadence of 3 to 5 new creative variations a week can extend an ad's effective lifespan from 10-14 days to 21-30 days. (Source: Ad-tech industry analysis, widely cited (verify primary source before client-facing use))"
+        },
+        {
+          "itemId": "f-11",
+          "theme": "facts",
+          "campaign": "impression",
+          "type": "fact",
+          "template": "statement",
+          "variant": "dark",
+          "text": "A steady cadence of 3 to 5 new creative variations a week can extend an ad's effective lifespan from 10-14 days to 21-30 days.",
+          "author": null,
+          "source": "Ad-tech industry analysis, widely cited (verify primary source before client-facing use)",
+          "sourceUrl": "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
+          "file": "generated/2026-11-03T03-11-37-370Z/card-2-dark.png",
+          "suggestedCaption": "A steady cadence of 3 to 5 new creative variations a week can extend an ad's effective lifespan from 10-14 days to 21-30 days. (Source: Ad-tech industry analysis, widely cited (verify primary source before client-facing use))"
         }
       ]
     }
