@@ -127,10 +127,18 @@
     {
       "id": "f-11",
       "date": "2026-11-03"
+    },
+    {
+      "id": "c-02",
+      "date": "2026-11-06"
+    },
+    {
+      "id": "ai-02",
+      "date": "2026-11-06"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": false,
+  "lastQuoteTemplateWasClassic": true,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -1059,6 +1067,70 @@
           "sourceUrl": "https://www.darkroomagency.com/observatory/creative-fatigue-performance-testing-framework",
           "file": "generated/2026-11-03T03-11-37-370Z/card-2-dark.png",
           "suggestedCaption": "A steady cadence of 3 to 5 new creative variations a week can extend an ad's effective lifespan from 10-14 days to 21-30 days. (Source: Ad-tech industry analysis, widely cited (verify primary source before client-facing use))"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-11-06T03-12-51-896Z",
+      "createdAt": "2026-11-06T03:12:54.260Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "c-02",
+          "theme": "creativity",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "The most effective ad in the world is still, first, a good idea.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-06T03-12-51-896Z/card-1-light.png",
+          "suggestedCaption": "\"The most effective ad in the world is still, first, a good idea.\" — Spaceback"
+        },
+        {
+          "itemId": "c-02",
+          "theme": "creativity",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "The most effective ad in the world is still, first, a good idea.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-06T03-12-51-896Z/card-1-dark.png",
+          "suggestedCaption": "\"The most effective ad in the world is still, first, a good idea.\" — Spaceback"
+        },
+        {
+          "itemId": "ai-02",
+          "theme": "ai-creative",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-06T03-12-51-896Z/card-2-light.png",
+          "suggestedCaption": "\"AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.\" — Spaceback"
+        },
+        {
+          "itemId": "ai-02",
+          "theme": "ai-creative",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-06T03-12-51-896Z/card-2-dark.png",
+          "suggestedCaption": "\"AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.\" — Spaceback"
         }
       ]
     }
