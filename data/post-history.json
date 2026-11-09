@@ -135,10 +135,18 @@
     {
       "id": "ai-02",
       "date": "2026-11-06"
+    },
+    {
+      "id": "q-02",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "b-01",
+      "date": "2026-11-09"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": true,
+  "lastQuoteTemplateWasClassic": false,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -1131,6 +1139,70 @@
           "sourceUrl": null,
           "file": "generated/2026-11-06T03-12-51-896Z/card-2-dark.png",
           "suggestedCaption": "\"AI's biggest gift to creative teams isn't speed — it's room to try the idea that would've never made the cut before.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-11-09T03-14-37-052Z",
+      "createdAt": "2026-11-09T03:14:41.404Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "q-02",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "Nobody counts the number of ads you run; they just remember the impression you make.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-09T03-14-37-052Z/card-1-light.png",
+          "suggestedCaption": "\"Nobody counts the number of ads you run; they just remember the impression you make.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "q-02",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "Nobody counts the number of ads you run; they just remember the impression you make.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-09T03-14-37-052Z/card-1-dark.png",
+          "suggestedCaption": "\"Nobody counts the number of ads you run; they just remember the impression you make.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "b-01",
+          "theme": "ai-creative",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "AI gives creative teams more time for the one thing a model can't do: have the idea in the first place.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-09T03-14-37-052Z/card-2-light.png",
+          "suggestedCaption": "\"AI gives creative teams more time for the one thing a model can't do: have the idea in the first place.\" — Spaceback"
+        },
+        {
+          "itemId": "b-01",
+          "theme": "ai-creative",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "AI gives creative teams more time for the one thing a model can't do: have the idea in the first place.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-09T03-14-37-052Z/card-2-dark.png",
+          "suggestedCaption": "\"AI gives creative teams more time for the one thing a model can't do: have the idea in the first place.\" — Spaceback"
         }
       ]
     }
