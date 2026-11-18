@@ -143,10 +143,18 @@
     {
       "id": "b-01",
       "date": "2026-11-09"
+    },
+    {
+      "id": "q-03",
+      "date": "2026-11-18"
+    },
+    {
+      "id": "b-02",
+      "date": "2026-11-18"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": false,
+  "lastQuoteTemplateWasClassic": true,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -1203,6 +1211,70 @@
           "sourceUrl": null,
           "file": "generated/2026-11-09T03-14-37-052Z/card-2-dark.png",
           "suggestedCaption": "\"AI gives creative teams more time for the one thing a model can't do: have the idea in the first place.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-11-18T21-00-21-597Z",
+      "createdAt": "2026-11-18T21:00:23.518Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "q-03",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "It took a nation to put a man on the moon, but it takes only one man to create a great ad.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-18T21-00-21-597Z/card-1-light.png",
+          "suggestedCaption": "\"It took a nation to put a man on the moon, but it takes only one man to create a great ad.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "q-03",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "It took a nation to put a man on the moon, but it takes only one man to create a great ad.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-18T21-00-21-597Z/card-1-dark.png",
+          "suggestedCaption": "\"It took a nation to put a man on the moon, but it takes only one man to create a great ad.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "b-02",
+          "theme": "creative-fatigue",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "variant": "light",
+          "text": "Fresh creative keeps paying off — a steady stream of new ideas is what keeps an audience leaning in.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-18T21-00-21-597Z/card-2-light.png",
+          "suggestedCaption": "\"Fresh creative keeps paying off — a steady stream of new ideas is what keeps an audience leaning in.\" — Spaceback"
+        },
+        {
+          "itemId": "b-02",
+          "theme": "creative-fatigue",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "classic",
+          "variant": "dark",
+          "text": "Fresh creative keeps paying off — a steady stream of new ideas is what keeps an audience leaning in.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-18T21-00-21-597Z/card-2-dark.png",
+          "suggestedCaption": "\"Fresh creative keeps paying off — a steady stream of new ideas is what keeps an audience leaning in.\" — Spaceback"
         }
       ]
     }
