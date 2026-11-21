@@ -151,10 +151,18 @@
     {
       "id": "b-02",
       "date": "2026-11-18"
+    },
+    {
+      "id": "q-04",
+      "date": "2026-11-21"
+    },
+    {
+      "id": "b-03",
+      "date": "2026-11-21"
     }
   ],
   "lastQuoteThemeIndex": 1,
-  "lastQuoteTemplateWasClassic": true,
+  "lastQuoteTemplateWasClassic": false,
   "batches": [
     {
       "batchId": "2026-10-01T01-40-06-481Z",
@@ -1275,6 +1283,70 @@
           "sourceUrl": null,
           "file": "generated/2026-11-18T21-00-21-597Z/card-2-dark.png",
           "suggestedCaption": "\"Fresh creative keeps paying off — a steady stream of new ideas is what keeps an audience leaning in.\" — Spaceback"
+        }
+      ]
+    },
+    {
+      "batchId": "2026-11-21T03-21-01-945Z",
+      "createdAt": "2026-11-21T03:21:04.383Z",
+      "format": "1080x1350",
+      "status": "pending",
+      "items": [
+        {
+          "itemId": "q-04",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "An idea can turn to dust or magic, depending on the talent that rubs against it.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-21T03-21-01-945Z/card-1-light.png",
+          "suggestedCaption": "\"An idea can turn to dust or magic, depending on the talent that rubs against it.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "q-04",
+          "theme": "creative-performance",
+          "campaign": "targeting",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "An idea can turn to dust or magic, depending on the talent that rubs against it.",
+          "author": "Bill Bernbach",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-21T03-21-01-945Z/card-1-dark.png",
+          "suggestedCaption": "\"An idea can turn to dust or magic, depending on the talent that rubs against it.\" — Bill Bernbach"
+        },
+        {
+          "itemId": "b-03",
+          "theme": "creative-fatigue",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "statement",
+          "variant": "light",
+          "text": "The campaigns that keep performing are the ones that never stop making new creative.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-21T03-21-01-945Z/card-2-light.png",
+          "suggestedCaption": "\"The campaigns that keep performing are the ones that never stop making new creative.\" — Spaceback"
+        },
+        {
+          "itemId": "b-03",
+          "theme": "creative-fatigue",
+          "campaign": "impression",
+          "type": "quote",
+          "template": "statement",
+          "variant": "dark",
+          "text": "The campaigns that keep performing are the ones that never stop making new creative.",
+          "author": "Spaceback",
+          "source": null,
+          "sourceUrl": null,
+          "file": "generated/2026-11-21T03-21-01-945Z/card-2-dark.png",
+          "suggestedCaption": "\"The campaigns that keep performing are the ones that never stop making new creative.\" — Spaceback"
         }
       ]
     }
